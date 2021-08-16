@@ -5,8 +5,13 @@ const logger = require('morgan');
 const app = express();
 
 app.use(logger('dev'));
-app.use(express.json());
+require ('dotenv').config();
 
+// Connect to the database
+require('./config/database');
+
+
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
 const port = process.env.PORT || 3001;
