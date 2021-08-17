@@ -2,7 +2,6 @@ import "./App.css";
 import React ,{useState} from "react";
 import { Redirect, Route, Switch, Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
-import { Mongoose } from "mongoose";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import Profile from "./pages/ProfileIndex/Profile";
 import { GoogleLogout } from 'react-google-login';
