@@ -4,7 +4,6 @@ import { Mongoose } from 'mongoose';
 
 function App() {
 
-
   const responseGoogle = (response) => {
     console.log(response)
     console.log(response.profileObj)
