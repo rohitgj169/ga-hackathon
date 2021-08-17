@@ -7,7 +7,8 @@ module.exports = {
 
 function createProfile(req, res){
     console.log('I reached createProfile')
-    console.log(req.body)
+    console.log("this is the request! \n")
+    console.log(req)
     return res.send('you made it to the end!')
     
 }
