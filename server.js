@@ -6,8 +6,6 @@ const usersRouter = require("./routes/users")
 const projectsRouter = require("./routes/api/projects")
 var cors = require('cors')
 
-
-
 const app = express();
 
 app.use(logger('dev'));

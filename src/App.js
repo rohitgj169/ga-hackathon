@@ -15,8 +15,8 @@ const [userObj, setUserObj] = useState({})
 
 
   const handleLogin = (response) => {
-    console.log(response.profileObj);
-    console.log(response.profileObj.isSignedIn);
+    // console.log(response.profileObj);
+    // console.log(response.profileObj.isSignedIn);
     let profileObj = response.profileObj
     setUserObj(
     {...profileObj}

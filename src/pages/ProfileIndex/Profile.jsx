@@ -2,49 +2,48 @@ import React ,{useState,useEffect} from "react";
 import axios from "axios"
 
 export default function Profile(props) {
-
     const [userObj, setUserObj] = useState({props})
-
 
     useEffect(() => {
         setUserObj(props);
       }, [props]);
 
+      useEffect(() => {
+          async function axiosCreateProfile() {
 
-    //   useEffect(async () => {
+            await axios({
+
+                method: 'post',
+                url: `http://localhost:3001/users/createProfile`,
+                withCredentials: false,
+                crossdomain: true,
+                body: {name: userObj.name},
+                headers: new Headers({ "Content-Type": "application/json" }),
+
+              })
+              .then((res) => {
+                console.log("this is the axios createprofile res" + res)
+            }).catch((error) => {
+                console.log(error)
+            });
+          };
+          axiosCreateProfile()
+      }, [])
+
+        //   useEffect(async () => {
     //     await fetch("http://localhost:3001/users/createProfile", 
     //     {mode: "no-cors"}
     //     ).then((response) => response.json())
     //     .then((data) => console.log('This is your data', data));
     // }, [])
-      useEffect(() => {
-          async function axiosCreateProfile() {
-            await axios({
-                method: 'post',
-                url: `http://localhost:3001/users/createProfile`,
-                withCredentials: false,
-                crossdomain: true,
-                body: {},
-                headers: new Headers({ "Content-Type": "application/json" }),
-              }).then((res) => {
-                console.log("this is the axios createprofile res.data " + res.data)
-            }).catch((error) => {
-                console.log(error)
-            });
-          };
 
-        //     await axios.post('http://localhost:3001/users/createProfile', userObj)
+  //     await axios.post('http://localhost:3001/users/createProfile', userObj)
         //     .then((res) => {
         //         console.log("this is the axios createprofile res.data " + res.data)
         //     }).catch((error) => {
         //         console.log(error)
         //     });
         //   }
-
-
-          axiosCreateProfile()
-      }, [])
-
     // useEffect(() => {
     //     async function fetchCreateProfile() {
     //       let response = await fetch('http://localhost:3001/users/createProfile', {
@@ -58,12 +57,6 @@ export default function Profile(props) {
     //     }
     //     fetchCreateProfile()
     //   }, [])
-
-
-
-
-
-
         // fetch("http://localhost:3001/users/createProfile", {
         //     method: "POST",
         //     headers: new Headers({
@@ -84,8 +77,6 @@ export default function Profile(props) {
         //   })
         
       
-
-
     return (
         <div>
             <h1>My Profile: </h1>
