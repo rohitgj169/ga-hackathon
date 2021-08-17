@@ -18,19 +18,12 @@ const [userObj, setUserObj] = useState({})
     console.log(response.profileObj);
     console.log(response.profileObj.isSignedIn);
     let profileObj = response.profileObj
-    setUserObj(
-    {...profileObj}
-    )
-    console.log("userObj email " + userObj.email)
+    setUserObj({...profileObj})
   };
 
   const handleLogout = (e) => {
-
     console.log('you are logged out')
   }
-
-  
-
 
   return (
     <div className="App">
@@ -55,7 +48,6 @@ const [userObj, setUserObj] = useState({})
         <Route path="/projects">
           <ProjectsIndex />
         </Route>
-       
         <Route path="/profile">
           <Profile userObj={userObj} />
         </Route>
