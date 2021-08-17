@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function MyProfile() {
+export default function ProjectsIndex() {
   return (
     <div>
-      My Profile
+      Projects Index
     </div>
   )
 }
