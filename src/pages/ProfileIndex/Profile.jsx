@@ -7,7 +7,7 @@ import { AiFillEdit } from 'react-icons/ai'
 import { Redirect, Route, Switch, Link } from "react-router-dom";
 
 
-export default function Profile(props) {
+export default function Profile({user}) {
     // const [user, setUser] = useState({props})
 
     // useEffect(() => {
@@ -29,7 +29,7 @@ export default function Profile(props) {
             <div className="profileTopHalf">
                 <div className="profileStrip">
                     
-                    <img className="profilePhoto" src={props.userObj.imageUrl} alt="profile-pic"/>
+                    {/* <img className="profilePhoto" src={props.userObj.imageUrl} alt="profile-pic"/> */}
                     
                   
                     
@@ -39,7 +39,7 @@ export default function Profile(props) {
                     </div>
                 
                 <div className="profileDetails">
-                    <p className="profileName">{props.userObj.name}</p>
+                    <p className="profileName">{user.name}</p>
                 </div>
                 <div className="profileIcons">
                     <ImTwitter style={{ fontSize: "40px", margin: "10px" }}/>
