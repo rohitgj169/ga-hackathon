@@ -8,7 +8,10 @@ const userSchema = new Schema({
     givenName: String,
     familyName: String,
     imageUrl: String,
-    about: String
+    about: String,
+    Employment: String,
+    jobTitle: String,
+    skills: String,
 })
 
 
