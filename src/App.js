@@ -6,7 +6,7 @@ import Profile from "./pages/ProfileIndex/Profile";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import NavBar from "./components/NavBar/Navbar";
+import NavBar from "./components/Navbar/Navbar";
 
 
 
