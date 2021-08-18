@@ -6,9 +6,8 @@ import { Redirect, Route, Switch, Link } from "react-router-dom";
 import * as profileAPI from "../../utilities/profile-api";
 
 export default function Profile({ user }) {
-  const [userProfile, setUserProfile] = useState({
-    about: "",
-  })
+  const [userProfile, setUserProfile] = useState(null)
+  console.log(userProfile);
 
   const getProfile = async() => {
     try{
@@ -52,7 +51,7 @@ export default function Profile({ user }) {
       <div className="profileBottomHalf">
         <div className="profileBio">
           <h3>Bio</h3>
-          <p>{userProfile.about}</p>
+          {userProfile?<p>userProfile.about</p>:<p>Please enter your bio</p>}
         </div>
         <div className="profileSkills">
           <h3>Current Skills</h3>
