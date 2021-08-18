@@ -1,6 +1,15 @@
 .App {
   text-align: center;
 }
+.googleLogin {
+  /* border: 1px solid red; */
+  margin: 10px;
+}
+
+.googleLogout {
+  /* border: 1px solid red; */
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +45,6 @@
     transform: rotate(360deg);
   }
 }
+
+
+

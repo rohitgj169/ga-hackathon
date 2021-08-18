@@ -8,16 +8,16 @@ import Profile from "./pages/ProfileIndex/Profile";
 import { GoogleLogout } from 'react-google-login';
 
 
-
 function App() {
 
 const [userObj, setUserObj] = useState({})
 
+  let profileObj
 
   const handleLogin = (response) => {
     // console.log(response.profileObj);
     // console.log(response.profileObj.isSignedIn);
-    let profileObj = response.profileObj
+    profileObj = response.profileObj
     setUserObj(
     {...profileObj}
     )
@@ -34,9 +34,12 @@ const [userObj, setUserObj] = useState({})
 
   return (
     <div className="App">
-      App
-      <GoogleLogin
+      
+      <GoogleLogin 
         clientId='893359449772-dd1ri95gq198m28a1k6t534k35fr0ovk.apps.googleusercontent.com'
+        render={renderProps => (
+          <button className="googleLogin" onClick={renderProps.onClick} disabled={renderProps.disabled}>Login</button>
+        )}
         buttonText="Login"
         onSuccess={handleLogin}
         onFailure={handleLogin}
@@ -45,12 +48,15 @@ const [userObj, setUserObj] = useState({})
       />
       <GoogleLogout
   clientId="893359449772-dd1ri95gq198m28a1k6t534k35fr0ovk.apps.googleusercontent.com"
+  render={renderProps => (
+    <button className="googleLogout" onClick={renderProps.onClick} disabled={renderProps.disabled}>Logout</button>
+  )}
   buttonText="Logout"
   onLogoutSuccess={handleLogout}
 >
 </GoogleLogout>
-      <Link to='/projects'>Projects</Link>
-      <Link to='/profile'>Profile</Link>
+      <Link style={{ margin: "10px" }}to='/projects'>Projects</Link>
+      <Link style={{ margin: "10px" }} to='/profile'>Profile</Link>
       <Switch>
         <Route path="/projects">
           <ProjectsIndex />
