@@ -5,7 +5,9 @@ import GoogleLogin from "react-google-login";
 import { Mongoose } from "mongoose";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import Profile from "./pages/ProfileIndex/Profile";
+import EditProfile from "./pages/EditProfile/EditProfile";
 import { GoogleLogout } from 'react-google-login';
+
 
 
 function App() {
@@ -35,6 +37,7 @@ const [userObj, setUserObj] = useState({})
   return (
     <div className="App">
       
+      
       <GoogleLogin 
         clientId='893359449772-dd1ri95gq198m28a1k6t534k35fr0ovk.apps.googleusercontent.com'
         render={renderProps => (
@@ -57,9 +60,13 @@ const [userObj, setUserObj] = useState({})
 </GoogleLogout>
       <Link style={{ margin: "10px" }}to='/projects'>Projects</Link>
       <Link style={{ margin: "10px" }} to='/profile'>Profile</Link>
+      <Link style={{ margin: "10px" }} to='/EditProfile'>Edit</Link>
       <Switch>
         <Route path="/projects">
           <ProjectsIndex />
+        </Route>
+        <Route path="/EditProfile">
+          <EditProfile />
         </Route>
        
         <Route path="/profile">

@@ -70,6 +70,14 @@ export default function Profile(props) {
                         <span>Interaction Design</span>
                     </p>
                 </div>
+                <div className="profileDesired">
+                    <h3>Desired Skills</h3>
+                    <p className="profileDesired">
+                        <span>Wireframing</span>
+                        <span>Front End Development</span>
+                        <span>Interaction Design</span>
+                    </p>
+                </div>
             </div>
 
         </div>
