@@ -21,7 +21,7 @@ function App() {
         <NavBar user={user} setUser={setUser}/>
         <Switch>
         <Route path="/EditProfile">
-          <EditProfile userObj={user}/>
+          <EditProfile user={user}/>
           </ Route>
         <Route path="/user/profile">
           <Profile user={user}/>

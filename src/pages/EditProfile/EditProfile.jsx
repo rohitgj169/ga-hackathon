@@ -1,60 +1,57 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState } from "react";
+import * as profileApi from "../../utilities/profile-api";
 
-export default function EditProfile(props) {
+export default function EditProfile({ user }) {
+  const [Bio, setBio] = useState({});
 
-    const [Bio, setBio] = useState({})
-    const [userObj, setUserObj] = useState({props})
+  const changeHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    setBio({ bio: e.target.value });
+  };
 
-    const updateBio = async (Bio) => {
-        await axios.post('/users/updateProfile', {userObj,Bio: Bio})
-        .then((res) => console.log("we made it back to react! " + res.headers))
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("this is the user")
+    console.log(user);
+    const formData = {
+      bio: Bio,
+    };
+    try {
+      profileApi.create(formData, user._id)
+
+    } catch(err) {
+      console.log("error")
     }
+    
+  };
 
-    const changeHandler = (e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-        setBio({bio: e.target.value})
-
-    }
-
-    const submitHandler = (e) => {
-        alert('thank you for submitting your data, please visit the profile page to see your information')
-        e.preventDefault()
-        console.log(Bio)
-        updateBio(Bio)
-    }
-
-
-    return (
-        <div>
-            <h1> Edit ProfilePage</h1>
-            <form onSubmit={submitHandler}>
-      <p>Enter your bio info</p>
-      <textarea
-        type='text'
-        name='bio'
-        onChange={changeHandler}
-        placeholder="Introduce yourself..."
-      rows="4" cols="50" ></textarea><br></br>
-      <input type="text" />
-      <input className="editProfileFormInput"
-        type='submit'
-      />
+  return (
+    <div>
+      <h1> Edit ProfilePage</h1>
+      <form onSubmit={submitHandler}>
+        <p>Enter your bio info</p>
+        <textarea
+          type="text"
+          name="bio"
+          onChange={changeHandler}
+          placeholder="Introduce yourself..."
+          rows="4"
+          cols="50"
+        ></textarea>
+        <br></br>
+        <input type="text" />
+        <input className="editProfileFormInput" type="submit" />
       </form>
-        </div>
-    )
+    </div>
+  );
 }
-
-
 
 // import React ,{useState,useEffect} from "react";
 // import axios from "axios"
 // import './Profile.css'
 // import { ImTwitter, ImGithub, ImLinkedin } from 'react-icons/im'
 // import { AiFillEdit } from 'react-icons/ai'
-
-
 
 // export default function Profile(props) {
 //     const [userObj, setUserObj] = useState({props})
@@ -67,7 +64,7 @@ export default function EditProfile(props) {
 
 //       useEffect((userObj) => {
 //           async function axiosCreateProfile() {
-//             const res = await axios.post('http://localhost:3001/users/createProfile', {user: userObject})         
+//             const res = await axios.post('http://localhost:3001/users/createProfile', {user: userObject})
 //             console.log(res)
 //             // .then((res) => console.log(res))
 //           }
@@ -75,22 +72,20 @@ export default function EditProfile(props) {
 //       }, [])
 
 //     return (
-        
+
 //         <div className="profileContainer">
 //             <div className="profileTopHalf">
 //                 <div className="profileStrip">
-                    
+
 //                     <img className="profilePhoto" src={props.userObj.imageUrl}/>
-                    
-                  
-                    
+
 //                     </div>
 //                     <div className="profileEditIcon">
 //                         <a href="/">
 //                           <AiFillEdit style={{ fontSize: "20px", margin: "10px",}}/>
 //                           </a>
 //                     </div>
-                
+
 //                 <div className="profileDetails">
 //                     <p className="profileName">{props.userObj.name}</p>
 //                 </div>
@@ -105,7 +100,6 @@ export default function EditProfile(props) {
 //                     Software Engineer
 //                 </div>
 //             </div>
-
 
 //             <div className="profileBottomHalf">
 //                 <div className="profileBio">
@@ -149,7 +143,7 @@ export default function EditProfile(props) {
 // export default function EditProfile() {
 //     return (
 //         <div>
-            
+
 //         </div>
 //     )
 // }
