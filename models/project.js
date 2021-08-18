@@ -9,10 +9,12 @@ const commentSchema = new Schema({
 
 const projectSchema = new Schema({
     Creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    Type: String,
     Members: String,
     Title: String,
     Description: String,
     Slots: String,
+    EstimatedTime: String,
     Comments: [commentSchema]
 })
 

@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
-const debug = require('debug')('auth');
 const User = require("../models/user");
 
 function authenticate(req, res, next) {
@@ -11,7 +10,6 @@ function authenticate(req, res, next) {
 
     jwt.verify(token, SECRET, (err, decoded) => {
       if (err) {
-        debug(err);
         res.status(403).json({ message: "Invalid token." });
       } else {
         User.findById(decoded.user._id)

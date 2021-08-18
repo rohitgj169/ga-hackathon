@@ -1,0 +1,97 @@
+h1 {
+    /* color:red; */
+    /* border: 1px solid red; */
+}
+
+.profileContainer {
+    /* border: 1px solid red; */
+    height: 95vh;
+}
+
+img {
+    border-radius: 100px;
+    height: 20vh;
+}
+
+.profileTopHalf {
+    /* border: 1px solid blue; */
+    height: 50%;
+    background: linear-gradient(180deg, grey, white 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.profileName {
+    /* border: 1px solid red; */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profileJob {
+    /* border: 1px solid red; */
+    font-size: 18px;
+    font-style: italic;
+    
+}
+
+
+.profileBottomHalf {
+    /* border: 1px solid blue; */
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profileBio {
+    /* display: flex;
+    flex-direction: column;
+    align-items: flext-start; */
+    text-align: left;
+    margin-left: 10px;
+}
+
+.profileBio p {
+    font-size: 14px;
+    margin-top: -15px;
+}
+
+.profileSkills, .profileDesired {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+.profileSkills span, .profileDesired span {
+    background-color: lightgrey;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 15px;
+    margin-bottom: 7px;
+    margin-left: -10px;
+}
+
+
+.profileStrip {
+    /* border: 1px solid red; */
+    /* display: flex;
+    align-items: center; */
+}
+
+.profileEditIcon {
+    position: absolute;
+    right: 5vw;
+    height: 5px;
+    /* border: 1px solid red; */
+}
+
+
+/* .profileIcons {
+    font-size: 40px;
+    padding: 15px;
+} */
+
