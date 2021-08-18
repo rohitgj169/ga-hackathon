@@ -1,3 +1,4 @@
+
 import React ,{useState,useEffect} from "react";
 import axios from "axios"
 import './Profile.css'
@@ -6,24 +7,21 @@ import { AiFillEdit } from 'react-icons/ai'
 import { Redirect, Route, Switch, Link } from "react-router-dom";
 
 
-
 export default function Profile(props) {
-    const [userObj, setUserObj] = useState({props})
-    const userObject = props.userObj
-    console.log(props.userObj)
+    // const [user, setUser] = useState({props})
 
-    useEffect(() => {
-        setUserObj(props);
-      }, [props]);
+    // useEffect(() => {
+    //     setUserObj(props);
+    //   }, [props]);
 
-      useEffect((userObj) => {
-          async function axiosCreateProfile() {
-            const res = await axios.post('http://localhost:3001/users/createProfile', {user: userObject})         
-            console.log(res)
-            // .then((res) => console.log(res))
-          }
-          axiosCreateProfile()
-      }, [])
+    //   useEffect((userObj) => {
+    //       async function axiosCreateProfile() {
+    //         const res = await axios.post('http://localhost:3001/users/createProfile', {user: userObject})         
+    //         console.log(res)
+    //         // .then((res) => console.log(res))
+    //       }
+    //       axiosCreateProfile()
+    //   }, [])
 
     return (
         
@@ -81,4 +79,4 @@ export default function Profile(props) {
 
         </div>
     )
-}
+    }
