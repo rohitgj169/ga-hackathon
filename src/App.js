@@ -63,10 +63,10 @@ const [userObj, setUserObj] = useState({})
       <Link style={{ margin: "10px" }} to='/EditProfile'>Edit</Link>
       <Switch>
         <Route path="/projects">
-          <ProjectsIndex />
+          <ProjectsIndex userObj={userObj}/>
         </Route>
         <Route path="/EditProfile">
-          <EditProfile />
+          <EditProfile userObj={userObj}/>
         </Route>
        
         <Route path="/profile">

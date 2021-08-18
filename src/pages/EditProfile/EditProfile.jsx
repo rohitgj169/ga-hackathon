@@ -1,29 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 
-export default function EditProfile() {
+export default function EditProfile(props) {
+
+    const [Bio, setBio] = useState({})
+    const [userObj, setUserObj] = useState({props})
+
+    const updateBio = async (Bio) => {
+        await axios.post('/users/updateProfile', {userObj,Bio: Bio})
+        .then((res) => console.log("we made it back to react! " + res.headers))
+    }
 
     const changeHandler = (e) => {
         e.preventDefault()
         console.log(e.target.value)
+        setBio({bio: e.target.value})
+
     }
 
-    const submitHandler = (e, bio) => {
+    const submitHandler = (e) => {
         alert('thank you for submitting your data, please visit the profile page to see your information')
         e.preventDefault()
-        console.log(bio)
+        console.log(Bio)
+        updateBio(Bio)
     }
+
 
     return (
         <div>
             <h1> Edit ProfilePage</h1>
             <form onSubmit={submitHandler}>
       <p>Enter your bio info</p>
-      <input
+      <textarea
         type='text'
         name='bio'
         onChange={changeHandler}
-      />
-      <input
+        placeholder="Introduce yourself..."
+      rows="4" cols="50" ></textarea><br></br>
+      <input className="editProfileFormInput"
         type='submit'
       />
       </form>

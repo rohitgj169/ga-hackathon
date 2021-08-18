@@ -3,6 +3,7 @@ import axios from "axios"
 import './Profile.css'
 import { ImTwitter, ImGithub, ImLinkedin } from 'react-icons/im'
 import { AiFillEdit } from 'react-icons/ai'
+import { Redirect, Route, Switch, Link } from "react-router-dom";
 
 
 
@@ -36,9 +37,7 @@ export default function Profile(props) {
                     
                     </div>
                     <div className="profileEditIcon">
-                        <a href="/">
-                          <AiFillEdit style={{ fontSize: "20px", margin: "10px",}}/>
-                          </a>
+                    <Link style={{ margin: "10px" }} to='/EditProfile'><AiFillEdit style={{ fontSize: "20px", margin: "10px",}}/></Link>
                     </div>
                 
                 <div className="profileDetails">

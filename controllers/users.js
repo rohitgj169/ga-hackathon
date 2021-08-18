@@ -1,10 +1,25 @@
 const User = require("../models/user");
 
 module.exports = {
-    getProfile
+    getProfile,
+    updateProfile
 }
 
 let userExists = true;
+
+async function updateProfile(req, res) {
+    console.log('This is the controllers req.body...')
+    console.log(req.body.userObj.props.userObj)
+    let userGoogleId = req.body.userObj.props.userObj.googleId
+    let bio = req.body.Bio.bio
+
+    let user = await User.findOneAndUpdate({googleId: userGoogleId},{about: bio})
+
+    console.log('this is the mongodb user data')
+   console.log(user)
+
+    return res.send('<h1>This is the controller response</h1>')
+}
 
 async function createProfile(body){
     console.log(body)
@@ -31,8 +46,8 @@ async function createProfile(body){
 
 async function getProfile(req, res){
     console.log('I reached createProfile')
-    console.log("this is the request! \n")
-    console.log(req.body)
+    // console.log("this is the request! \n")
+    // console.log(req.body)
     User.find({ googleId: req.body.user.googleId}, (err, item) => {
         if (item.length > 0){
              console.log("this is the item find ")
