@@ -51,7 +51,7 @@ export default function Profile({ user }) {
       <div className="profileBottomHalf">
         <div className="profileBio">
           <h3>Bio</h3>
-          {userProfile?<p>userProfile.about</p>:<p>Please enter your bio</p>}
+          {userProfile?<p>{userProfile.about}</p>:<p>Please enter your bio</p>}
         </div>
         <div className="profileSkills">
           <h3>Current Skills</h3>
