@@ -21,6 +21,9 @@ export default function Profile({ user }) {
   }
 
   useEffect(() => {
+      setUserProfile({
+          about: ""
+      })
     getProfile();
   },[])
 
@@ -52,7 +55,11 @@ export default function Profile({ user }) {
       <div className="profileBottomHalf">
         <div className="profileBio">
           <h3>Bio</h3>
-          <p>{userProfile.about}</p>
+          {userProfile.about ?  
+          (<p>{userProfile.about}</p> ) 
+          :
+          ( <p>Add a bio to your profile!</p> )}
+
         </div>
         <div className="profileSkills">
           <h3>Current Skills</h3>
