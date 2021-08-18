@@ -1,56 +1,33 @@
 import "./App.css";
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import { Redirect, Route, Switch, Link } from "react-router-dom";
-import GoogleLogin from "react-google-login";
-import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
+import {getUser} from './utilities/users-service';
 import Profile from "./pages/ProfileIndex/Profile";
-import { GoogleLogout } from 'react-google-login';
-
-
+import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
-
-const [userObj, setUserObj] = useState({})
-
-
-  const handleLogin = (response) => {
-    // console.log(response.profileObj);
-    // console.log(response.profileObj.isSignedIn);
-    let profileObj = response.profileObj
-    setUserObj({...profileObj})
-  };
-
-  const handleLogout = (e) => {
-    console.log('you are logged out')
-  }
+  const [user, setUser] = useState(getUser());
 
   return (
     <div className="App">
-      App
-      <GoogleLogin
-        clientId='893359449772-dd1ri95gq198m28a1k6t534k35fr0ovk.apps.googleusercontent.com'
-        buttonText="Login"
-        onSuccess={handleLogin}
-        onFailure={handleLogin}
-        isSignedIn={true}
-        cookiePolicy={"single_host_origin"}
-      />
-      <GoogleLogout
-  clientId="893359449772-dd1ri95gq198m28a1k6t534k35fr0ovk.apps.googleusercontent.com"
-  buttonText="Logout"
-  onLogoutSuccess={handleLogout}
->
-</GoogleLogout>
-      <Link to='/projects'>Projects</Link>
-      <Link to='/profile'>Profile</Link>
-      <Switch>
-        <Route path="/projects">
+      {user ? (
+        <>
+        <NavBar user={user} setUser={setUser}/>
+        <Switch>
+        <Route path="/user/profile">
+          <Profile/>
+        </Route>
+        <Route path='/projects'>
           <ProjectsIndex />
         </Route>
-        <Route path="/profile">
-          <Profile userObj={userObj} />
-        </Route>
-      </Switch>
+        <Redirect to="/projects"/>
+        </Switch>
+        </>
+      ) : (
+        <AuthPage setUser={setUser}/>
+      )}
     </div>
   );
 }
