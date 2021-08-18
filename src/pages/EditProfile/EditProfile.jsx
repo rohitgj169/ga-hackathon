@@ -37,6 +37,7 @@ export default function EditProfile(props) {
         onChange={changeHandler}
         placeholder="Introduce yourself..."
       rows="4" cols="50" ></textarea><br></br>
+      <input type="text" />
       <input className="editProfileFormInput"
         type='submit'
       />
