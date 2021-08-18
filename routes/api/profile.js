@@ -5,6 +5,7 @@ const authenticate = require("../../helpers/authenticate");
 
 router.use(authenticate);
 
-router.post("/api/users/:id/profile", profileCtrl.create);
+router.post("/:id", profileCtrl.create);
+router.get("/:id/profile/show", profileCtrl.show);
 
 module.exports = router;
