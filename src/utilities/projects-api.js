@@ -15,10 +15,25 @@ export async function create(projectData, userId) {
     },
     body: JSON.stringify(payload),
   });
-  
+
   if (res.ok) {
     return "Project created";
   } else {
     throw new Error("unable to create project");
+  }
+}
+
+export async function getAllProjects() {
+  const res = await fetch(BASE_URL, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + getToken(),
+    },
+  });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Unable to retrieve projects");
   }
 }

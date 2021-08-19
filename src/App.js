@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Redirect, Route, Switch, Link } from "react-router-dom";
+import { Redirect, Route, Switch} from "react-router-dom";
 import {getUser} from './utilities/users-service';
 import Profile from "./pages/ProfileIndex/Profile";
 import EditProfile from "./pages/EditProfile/EditProfile";
@@ -29,7 +29,7 @@ function App() {
           <Profile user={user}/>
         </Route>
         <Route path='/projects'>
-          <ProjectsIndex setProjectList={setProjectList}/>
+          <ProjectsIndex projectList={projectList} setProjectList={setProjectList}/>
         </Route>
         <Route path='/project/new'>
           <NewProjectPage />
