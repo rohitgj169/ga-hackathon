@@ -12,7 +12,6 @@ async function create(req,res) {
 
 async function show(req,res) {
   try{
-
     const userProfile = await Profile.findOne({userId:req.params.id}).exec();
     console.log(userProfile);
     res.status(200).json(userProfile);
