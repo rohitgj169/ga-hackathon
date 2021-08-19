@@ -6,8 +6,6 @@ export default function ProjectsIndex({ projectList, setProjectList }) {
   const getProjectList = async () => {
     try {
       const projectList = await ProjectAPI.getAllProjects();
-      console.log('this is the project list')
-      console.log(projectList);
       setProjectList(projectList);
     } catch (err) {
       console.log(err.message);
@@ -22,7 +20,7 @@ export default function ProjectsIndex({ projectList, setProjectList }) {
     <div>
       {projectList.length
         ? projectList.map((project) => {
-            return <ProjectCard project={project}/>;
+            return <ProjectCard key={project._id} project={project}/>;
           })
         : null}
     </div>

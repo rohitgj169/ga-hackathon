@@ -10,11 +10,9 @@ export default function ProjectIdPage({ match }) {
       name: "",
     }
   })
-  console.log(match.params.id);
   const loadProject = async () => {
     try {
       const projectInfo = await ProjectAPI.getOneProject(match.params.id);
-      console.log(projectInfo);
       setProject(projectInfo);
     } catch (err) {
       console.log(err.message);

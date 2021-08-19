@@ -5,6 +5,11 @@ const BASE_URL = "/api/projects";
 export async function create(projectData, userId) {
   const payload = {
     title: projectData.title,
+    time: projectData.time,
+    description: projectData.description,
+    requiredSoftware: projectData.requiredSoftware,
+    requiredUI: projectData.requiredUI,
+    requiredData: projectData.requiredData,
   };
 
   const res = await fetch(`${BASE_URL}`, {
@@ -39,15 +44,12 @@ export async function getAllProjects() {
 }
 
 export async function getOneProject(id) {
-  console.log(id);
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "GET",
     header: {
-      
       Authorization: "Bearer " + getToken(),
     },
   });
-  console.log(res);
   if (res.ok) {
     return res.json();
   } else {
