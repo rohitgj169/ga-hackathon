@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import * as ProjectAPI from "../../utilities/projects-api";
 
 export default function ProjectIdPage({ match }) {
-  const [project,setProject] = useState({
-    title:"",
+  const [project, setProject] = useState({
+    title: "",
     creator: {
       name: "",
-    }
-  })
+    },
+  });
   const loadProject = async () => {
     try {
       const projectInfo = await ProjectAPI.getOneProject(match.params.id);
@@ -26,8 +26,22 @@ export default function ProjectIdPage({ match }) {
   return (
     <div>
       Project Title : {project.title}
+      <br/>
       Project Creator : {project.creator.name}
+      <form>
+        <div>
+          <label htmlFor="project-comment">Comment Section</label>
+          <br/>
+          <textarea 
+          style={{ resize: "none" }} 
+          type="text"
+          rows="4"
+          cols="50"
+          placeholder="Enter your comment here..."
+          >
+          </textarea>
+        </div>
+      </form>
     </div>
-
-  )
+  );
 }
