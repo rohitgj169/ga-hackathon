@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import * as ProjectAPI from "../../utilities/projects-api";
 
 export default function NewProjectPage() {
   const [inputValues, setInputValues] = useState({
@@ -13,12 +14,17 @@ export default function NewProjectPage() {
     setInputValues({ ...inputValues, [evt.target.name]: evt.target.value });
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const formData = {
-      title:inputValues.title
-    }
+      title: inputValues.title,
+    };
     console.log(formData);
+    try {
+      await ProjectAPI.create(formData);
+    } catch (err) {
+      console.log("error");
+    }
   };
 
   return (
@@ -26,7 +32,7 @@ export default function NewProjectPage() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Project Title</label>
-          <input 
+          <input
             type="text"
             name="title"
             value={inputValues.title}

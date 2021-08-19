@@ -14,6 +14,7 @@ import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 function App() {
   
   const [user, setUser] = useState(getUser());
+  const [projectList, setProjectList] = useState([]);
 
   return (
     <div className="App">
@@ -28,7 +29,7 @@ function App() {
           <Profile user={user}/>
         </Route>
         <Route path='/projects'>
-          <ProjectsIndex />
+          <ProjectsIndex setProjectList={setProjectList}/>
         </Route>
         <Route path='/project/new'>
           <NewProjectPage />

@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-export default function ProjectsIndex() {
+export default function ProjectsIndex(setProjectList) {
+
+  const getProjectList = () => {
+    
+  }
+
+  useEffect(()=> {
+    getProjectList();
+  },[])
+
   return (
     <div>
       Projects Index
