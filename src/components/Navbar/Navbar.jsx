@@ -15,6 +15,10 @@ export default function NavBar({user, setUser}) {
       &nbsp; | &nbsp;
       <Link to="/projects">Projects</Link>
       &nbsp; | &nbsp;
+      <Link to="/projects">My Project</Link>
+      &nbsp; | &nbsp;
+      <Link to="/projects">My Projects</Link>
+      &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Log Out</Link>

@@ -40,7 +40,7 @@ export default function EditProfile({ user }) {
           cols="50"
         ></textarea>
         <br></br>
-        <input type="text" />
+        {/* <input type="text" /> */}
         <input className="editProfileFormInput" type="submit" />
       </form>
     </div>
