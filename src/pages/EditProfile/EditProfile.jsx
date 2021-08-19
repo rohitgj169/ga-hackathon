@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import "./EditProfile.css"
 import { Form } from 'react-bootstrap'
 
-export default function EditProfile({ user, userProfile }) {
+export default function EditProfile({ user }) {
   const [Bio, setBio] = useState({});
   let history = useHistory()
   const changeHandler = (e) => {
@@ -21,7 +21,7 @@ export default function EditProfile({ user, userProfile }) {
       bio: Bio,
     };
     try {
-      profileApi.create(formData, user._id, userProfile._id)
+      profileApi.create(formData, user._id)
       Swal.fire('You have updated your profile!')
       history.push("/user/profile");
     } catch(err) {
@@ -36,6 +36,7 @@ export default function EditProfile({ user, userProfile }) {
       <form onSubmit={submitHandler}>
         <p>Enter your bio info</p>
         <textarea
+          style={{resize:"none"}}
           type="text"
           name="bio"
           onChange={changeHandler}
@@ -61,6 +62,7 @@ export default function EditProfile({ user, userProfile }) {
       </form>
     </div>
   );
+
 }
 
 
@@ -260,4 +262,5 @@ export default function EditProfile({ user, userProfile }) {
 //     )
 // 
 //
+
 }

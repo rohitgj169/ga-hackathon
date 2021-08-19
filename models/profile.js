@@ -6,6 +6,7 @@ const profileSchema = new Schema({
   about: String,
   employment: String,
   jobTitle: String,
+  currentSkills: [],
 });
 
 module.exports = mongoose.model("Profile", profileSchema);

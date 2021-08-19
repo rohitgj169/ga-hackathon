@@ -1,7 +1,7 @@
 const Profile = require("../../models/profile");
 
 async function create(req, res) {
-  const profileId = req.params.id;
+  // const profileId = req.params.id;
   req.body.user = req.user._id;
   let newProfile = new Profile({
     userId: req.body.user,

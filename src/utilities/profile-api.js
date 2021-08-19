@@ -2,12 +2,12 @@ import { getToken } from "./users-service";
 
 const BASE_URL = "/api/profile";
 
-export async function create(profileData, userId, userProfileId) {
+export async function create(profileData, userId) {
   const payload = {
     about: profileData.bio,
   };
 
-  const res = await fetch(`${BASE_URL}/${userProfileId}`, {
+  const res = await fetch(`${BASE_URL}/${userId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

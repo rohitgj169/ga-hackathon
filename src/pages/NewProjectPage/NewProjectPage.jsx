@@ -50,6 +50,7 @@ export default function NewProjectPage() {
           <br />
 
           <input
+            id="title"
             type="text"
             name="title"
             placeholder="Enter Title"
@@ -60,10 +61,14 @@ export default function NewProjectPage() {
         <div>
           <label htmlFor="description">Project Brief</label>
           <br />
-          <input
+          <textarea
+            style={{resize:"none"}}
+            id="description"
             type="text"
             name="description"
             placeholder="Give an overview of your project"
+            rows="4"
+            cols="50"
             value={inputValues.description}
             onChange={handleChange}
           />
