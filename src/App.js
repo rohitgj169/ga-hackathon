@@ -7,6 +7,7 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import NavBar from "./components/NavBar/Navbar";
+import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 
 
 
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path='/projects'>
           <ProjectsIndex />
+        </Route>
+        <Route path='/project/new'>
+          <NewProjectPage />
         </Route>
         <Redirect to="/projects"/>
         </Switch>

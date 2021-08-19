@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { ImTwitter, ImGithub, ImLinkedin } from "react-icons/im";
 import { AiFillEdit } from "react-icons/ai";
-import { Redirect, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as profileAPI from "../../utilities/profile-api";
 
 export default function Profile({ user }) {
