@@ -4,7 +4,12 @@ import { useEffect } from "react";
 import * as ProjectAPI from "../../utilities/projects-api";
 
 export default function ProjectIdPage({ match }) {
-  const [project,setProject] = useState({})
+  const [project,setProject] = useState({
+    title:"",
+    creator: {
+      name: "",
+    }
+  })
   console.log(match.params.id);
   const loadProject = async () => {
     try {
