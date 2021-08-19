@@ -37,3 +37,20 @@ export async function getAllProjects() {
     throw new Error("Unable to retrieve projects");
   }
 }
+
+export async function getOneProject(id) {
+  console.log(id);
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: "GET",
+    header: {
+      
+      Authorization: "Bearer " + getToken(),
+    },
+  });
+  console.log(res);
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Unable to retrieve project info.");
+  }
+}
