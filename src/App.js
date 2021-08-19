@@ -14,6 +14,8 @@ import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
 function App() {
   const [user, setUser] = useState(getUser());
   const [projectList, setProjectList] = useState([]);
+  const [userProfile, setUserProfile] = useState(null);
+
 
   return (
     <div className="App">
@@ -22,10 +24,10 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route path="/EditProfile">
-              <EditProfile user={user} />
+              <EditProfile user={user} userProfile={userProfile}/>
             </Route>
             <Route path="/user/profile">
-              <Profile user={user} />
+              <Profile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
             </Route>
             <Route exact path="/projects">
               <ProjectsIndex

@@ -3,7 +3,7 @@ import * as profileApi from "../../utilities/profile-api";
 import Swal from 'sweetalert2'
 import { useHistory } from "react-router-dom";
 
-export default function EditProfile({ user }) {
+export default function EditProfile({ user, userProfile }) {
   const [Bio, setBio] = useState({});
   let history = useHistory()
   const changeHandler = (e) => {
@@ -14,23 +14,17 @@ export default function EditProfile({ user }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("this is the user")
-    console.log(user);
-    Swal.fire('You have updated your profile!')
-    
-    history.push("/user/profile");
-    
-
+    // console.log(user);
     const formData = {
       bio: Bio,
     };
     try {
-      profileApi.create(formData, user._id)
-
+      profileApi.create(formData, user._id, userProfile._id)
+      Swal.fire('You have updated your profile!')
+      history.push("/user/profile");
     } catch(err) {
       console.log("error")
     }
-    
   };
 
   return (

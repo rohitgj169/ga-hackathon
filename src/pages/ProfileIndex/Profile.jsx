@@ -5,14 +5,13 @@ import { AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import * as profileAPI from "../../utilities/profile-api";
 
-export default function Profile({ user }) {
-  const [userProfile, setUserProfile] = useState(null)
-  console.log(userProfile);
+export default function Profile({ user, userProfile, setUserProfile }) {
+  // const [userProfile, setUserProfile] = useState(null);
 
   const getProfile = async() => {
     try{
       const profile = await profileAPI.show(user._id);
-      console.log(profile);
+      // console.log(profile);
       setUserProfile(profile);
     } catch(err) {
       console.log(err.message)

@@ -19,7 +19,7 @@ export default function ProjectsIndex({ projectList, setProjectList }) {
   return (
     <div>
       {projectList.length
-        ? projectList.map((project) => {
+        ? projectList.slice(0).reverse().map((project) => {
             return <ProjectCard key={project._id} project={project}/>;
           })
         : null}
