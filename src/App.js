@@ -1,18 +1,22 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Redirect, Route, Switch, Link } from "react-router-dom";
+import { Redirect, Route, Switch} from "react-router-dom";
 import {getUser} from './utilities/users-service';
 import Profile from "./pages/ProfileIndex/Profile";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import NavBar from "./components/Navbar/Navbar";
+
+import NavBar from "./components/NavBar/Navbar";
+import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
+
 
 
 
 function App() {
   
   const [user, setUser] = useState(getUser());
+  const [projectList, setProjectList] = useState([]);
 
   return (
     <div className="App">
@@ -27,7 +31,10 @@ function App() {
           <Profile user={user}/>
         </Route>
         <Route path='/projects'>
-          <ProjectsIndex />
+          <ProjectsIndex projectList={projectList} setProjectList={setProjectList}/>
+        </Route>
+        <Route path='/project/new'>
+          <NewProjectPage />
         </Route>
         <Redirect to="/projects"/>
         </Switch>

@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const router = require('./routes/api/users');
 
 require ('dotenv').config();
 // Connect to the database
@@ -16,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 //API routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/projects', require('./routes/api/projects'));
 
 //Catch all route
 app.get('/*', function(req, res) {
