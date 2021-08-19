@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import * as ProjectAPI from "../../utilities/projects-api";
 
 export default function ProjectsIndex({ projectList, setProjectList }) {
@@ -20,7 +21,7 @@ export default function ProjectsIndex({ projectList, setProjectList }) {
     <div>
       {projectList.length
         ? projectList.map((project) => {
-            return <div>Project Title: {project.title}</div>;
+            return <ProjectCard project={project}/>;
           })
         : null}
     </div>
