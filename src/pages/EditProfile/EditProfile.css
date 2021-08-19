@@ -1,10 +1,28 @@
 .EditProfile {
     height: 90vh;
     border: 1px solid black;
-    background: linear-gradient(180deg, #C5D86D, white 70%);
+    background: linear-gradient(180deg, #C5D86D, white 30%);
     
 }
 
 div {
     /* border: 1px solid red; */
+}
+
+input {
+    margin:3px;
+}
+
+p {
+    text-align: left;
+    margin-left: 5vw;
+    margin-bottom: 0px;
+}
+
+button {
+    background-color: rgba(128, 0, 128, 0.604);
+    position: relative;
+    right: 38vw;
+    color: white;
+    height: 40px;
 }

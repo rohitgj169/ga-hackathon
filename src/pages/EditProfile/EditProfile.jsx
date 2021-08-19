@@ -3,22 +3,47 @@ import * as profileApi from "../../utilities/profile-api";
 import Swal from 'sweetalert2'
 import { useHistory } from "react-router-dom";
 import "./EditProfile.css"
+
 import { Form } from 'react-bootstrap'
 
 export default function EditProfile({ user }) {
-  const [Bio, setBio] = useState({});
-  let history = useHistory()
-  const changeHandler = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-    setBio({ bio: e.target.value });
+
+
+  const [inputValues, setInputValues] = useState({
+    bio: "",
+    imageUrl: "",
+    profession: "",
+    portfolio: "",
+    linkedin: "",
+    twitter: "",
+    github: "",
+    skills: [],
+    desiredSkills: [],
+  });
+
+  let history = useHistory();
+  const changeHandler = (evt) => {
+    evt.preventDefault();
+    setInputValues({ ...inputValues, [evt.target.name]: evt.target.value });
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
     // console.log(user);
     const formData = {
-      bio: Bio,
+      bio: inputValues.bio,
+      imageUrl: inputValues.imageUrl,
+      profession: inputValues.profession,
+      portfolio: inputValues.portfolio,
+      linkedin: inputValues.linkedin,
+      twitter: inputValues.twitter,
+      github: inputValues.github,
+      skill1: inputValues.skill1,
+      skill2: inputValues.skill2,
+      skill3: inputValues.skill3,
+      desiredSkill1: inputValues.desiredSkill1,
+      desiredSkill2: inputValues.desiredSkill2,
+      desiredSkill3: inputValues.desiredSkill3,
     };
     try {
       profileApi.create(formData, user._id)
@@ -32,11 +57,21 @@ export default function EditProfile({ user }) {
 
   return (
     <div className="EditProfile">
-      <h1> Edit Profile Page</h1>
+      <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" style={{backgroundImage: "contain", height: "10vh", width: "20vw"}}/>
       <form onSubmit={submitHandler}>
-        <p>Enter your bio info</p>
+        <p>Profile Photo</p>
+      <input
+      style={{width: "89vw", height: "3vh"}}
+            type="text"
+            name="imageUrl"
+            placeholder="Enter Image URL..."
+            value={inputValues.imageUrl}
+            onChange={changeHandler}
+          />
+        <p>Bio</p>
         <textarea
           style={{resize:"none"}}
+          style={{width: "88vw"}}
           type="text"
           name="bio"
           onChange={changeHandler}
@@ -45,20 +80,230 @@ export default function EditProfile({ user }) {
           cols="50"
         ></textarea>
         <br></br>
+        <p>Profession</p>
         <Form.Select
-              name="requiredSoftware"
-              value={"1"}
-              onChange={submitHandler}
+        style={{width: "89vw", height: "3vh"}}
+              name="profession"
+              value={inputValues.profession}
+              onChange={changeHandler}
             >
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+              <option value="Software Engineer">Software Engineer</option>
+              <option value="User Experience Designer">User Experience Designer</option>
+              <option value="Data Scientist">Data Scientist</option>
+              
             </Form.Select>
+            <p>Social Media Links</p>
+            <input
+            style={{width: "86vw", height: "3vh"}}
+            type="text"
+            name="portfolio"
+            placeholder="Portfolio"
+            value={inputValues.portfolio}
+            onChange={changeHandler}
+          /><br></br>
+          <input
+          style={{width: "86vw", height: "3vh"}}
+            type="text"
+            name="linkedin"
+            placeholder="Linkedin"
+            value={inputValues.linkedin}
+            onChange={changeHandler}
+          /><br></br>
+          <input
+          style={{width: "86vw", height: "3vh"}}
+            type="text"
+            name="twitter"
+            placeholder="Twitter"
+            value={inputValues.twitter}
+            onChange={changeHandler}
+          /><br></br>
+          <input
+          style={{width: "86vw", height: "3vh"}}
+            type="text"
+            name="github"
+            placeholder="Github"
+            value={inputValues.github}
+            onChange={changeHandler}
+          /><br></br>
+
+          
+          <p>Top 3 Current Skills</p>
+            <Form.Select
+            style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+             
+              name="skills1"
+              value={inputValues.skill1}
+              onChange={changeHandler}
+              placeholder="Select Skill"
+            >
+              <option value="WireFraming">WireFraming</option>
+              <option value="Research">Research</option>
+              <option value="User Testing">User Testing</option>
+              <option value="UI Design">UI Design</option>
+              <option value="Mobile Design">Mobile Design</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Copy Writing">Copy Writing</option>
+              <option value="Prototyping">Prototyping</option>
+              <option value="Information Architecture">Information Architecture</option>
+              <option value="User Flows">User Flows</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="MongoDB/MongooseJS">MongoDB/MongooseJS</option>
+              <option value="NodeJS/ExpressJS">NodeJS/ExpressJS</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="PostgreSQL">PostgreSQL</option>
+              <option value="ReactJS">ReactJS</option>
+              <option value="Java">Java</option>
+            </Form.Select><br></br>
+            <Form.Select
+            style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+              name="skills2"
+              value={inputValues.skill2}
+              onChange={changeHandler}
+            >  
+              <option value="Research">Research</option>
+              <option value="WireFraming">WireFraming</option>
+              <option value="User Testing">User Testing</option>
+              <option value="UI Design">UI Design</option>
+              <option value="Mobile Design">Mobile Design</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Copy Writing">Copy Writing</option>
+              <option value="Prototyping">Prototyping</option>
+              <option value="Information Architecture">Information Architecture</option>
+              <option value="User Flows">User Flows</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="MongoDB/MongooseJS">MongoDB/MongooseJS</option>
+              <option value="NodeJS/ExpressJS">NodeJS/ExpressJS</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="PostgreSQL">PostgreSQL</option>
+              <option value="ReactJS">ReactJS</option>
+              <option value="Java">Java</option>
+            </Form.Select><br></br>
+            <Form.Select
+            style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+              name="skills3"
+              value={inputValues.skill3}
+              onChange={changeHandler}
+              style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+            >
+              
+              <option value="User Testing">User Testing</option>
+              <option value="WireFraming">WireFraming</option>
+              <option value="Research">Research</option>
+              <option value="UI Design">UI Design</option>
+              <option value="Mobile Design">Mobile Design</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Copy Writing">Copy Writing</option>
+              <option value="Prototyping">Prototyping</option>
+              <option value="Information Architecture">Information Architecture</option>
+              <option value="User Flows">User Flows</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="MongoDB/MongooseJS">MongoDB/MongooseJS</option>
+              <option value="NodeJS/ExpressJS">NodeJS/ExpressJS</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="PostgreSQL">PostgreSQL</option>
+              <option value="ReactJS">ReactJS</option>
+              <option value="Java">Java</option>
+            </Form.Select><br></br>
+            
+            <p>Top 3 Desired Skills</p>
+            <Form.Select
+            
+            style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+              name="desiredSkills1"
+              value={inputValues.desiredSkill1}
+              onChange={changeHandler}
+            >
+              
+              <option value="UI Design">UI Design</option>
+              <option value="WireFraming">WireFraming</option>
+              <option value="Research">Research</option>
+              <option value="User Testing">User Testing</option>
+              <option value="Mobile Design">Mobile Design</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Copy Writing">Copy Writing</option>
+              <option value="Prototyping">Prototyping</option>
+              <option value="Information Architecture">Information Architecture</option>
+              <option value="User Flows">User Flows</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="MongoDB/MongooseJS">MongoDB/MongooseJS</option>
+              <option value="NodeJS/ExpressJS">NodeJS/ExpressJS</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="PostgreSQL">PostgreSQL</option>
+              <option value="ReactJS">ReactJS</option>
+              <option value="Java">Java</option>
+            </Form.Select><br></br>
+            <Form.Select
+            style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+              name="desiredSkills2"
+              value={inputValues.desiredSkill2}
+              onChange={changeHandler}
+            >
+           
+              <option value="Information Architecture">Information Architecture</option>
+              <option value="WireFraming">WireFraming</option>
+              <option value="Research">Research</option>
+              <option value="User Testing">User Testing</option>
+              <option value="UI Design">UI Design</option>
+              <option value="Mobile Design">Mobile Design</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Copy Writing">Copy Writing</option>
+              <option value="Prototyping">Prototyping</option>
+              <option value="User Flows">User Flows</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="MongoDB/MongooseJS">MongoDB/MongooseJS</option>
+              <option value="NodeJS/ExpressJS">NodeJS/ExpressJS</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="PostgreSQL">PostgreSQL</option>
+              <option value="ReactJS">ReactJS</option>
+              <option value="Java">Java</option>
+            </Form.Select><br></br>
+            <Form.Select
+            style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
+              name="desiredSkills3"
+              value={inputValues.desiredSkill3}
+              onChange={changeHandler}
+            >
+              
+              <option value="JavaScript">JavaScript</option>
+              <option value="WireFraming">WireFraming</option>
+              <option value="Research">Research</option>
+              <option value="User Testing">User Testing</option>
+              <option value="UI Design">UI Design</option>
+              <option value="Mobile Design">Mobile Design</option>
+              <option value="Interviewing">Interviewing</option>
+              <option value="Copy Writing">Copy Writing</option>
+              <option value="Prototyping">Prototyping</option>
+              <option value="Information Architecture">Information Architecture</option>
+              <option value="User Flows">User Flows</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="MongoDB/MongooseJS">MongoDB/MongooseJS</option>
+              <option value="NodeJS/ExpressJS">NodeJS/ExpressJS</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+              <option value="PostgreSQL">PostgreSQL</option>
+              <option value="ReactJS">ReactJS</option>
+              <option value="Java">Java</option>
+            </Form.Select><br></br>
 
         {/* <input type="text" /> */}
-        <input className="editProfileFormInput" type="submit" />
+        {/* <button><input style={{position: "relative", right: "35vw"}} className="editProfileFormInput" name="Done" type="submit" />Done</button> */}
+        <button type="submit" className="editProfileFormInput" name="Done">Done</button>
       </form>
     </div>
   );
@@ -158,109 +403,3 @@ export default function EditProfile({ user }) {
           />
         </div> */}
         
-
-
-
-{// import React ,{useState,useEffect} from "react";
-// import axios from "axios"
-// import './Profile.css'
-// import { ImTwitter, ImGithub, ImLinkedin } from 'react-icons/im'
-// import { AiFillEdit } from 'react-icons/ai'
-
-// export default function Profile(props) {
-//     const [userObj, setUserObj] = useState({props})
-//     const userObject = props.userObj
-//     console.log(props.userObj)
-
-//     useEffect(() => {
-//         setUserObj(props);
-//       }, [props]);
-
-//       useEffect((userObj) => {
-//           async function axiosCreateProfile() {
-//             const res = await axios.post('http://localhost:3001/users/createProfile', {user: userObject})
-//             console.log(res)
-//             // .then((res) => console.log(res))
-//           }
-//           axiosCreateProfile()
-//       }, [])
-
-//     return (
-
-//         <div className="profileContainer">
-//             <div className="profileTopHalf">
-//                 <div className="profileStrip">
-
-//                     <img className="profilePhoto" src={props.userObj.imageUrl}/>
-
-//                     </div>
-//                     <div className="profileEditIcon">
-//                         <a href="/">
-//                           <AiFillEdit style={{ fontSize: "20px", margin: "10px",}}/>
-//                           </a>
-//                     </div>
-
-//                 <div className="profileDetails">
-//                     <p className="profileName">{props.userObj.name}</p>
-//                 </div>
-//                 <div className="profileIcons">
-//                     <ImTwitter style={{ fontSize: "40px", margin: "10px" }}/>
-
-//                     <ImGithub style={{ fontSize: "40px", margin: "10px" }}/>
-
-//                     <ImLinkedin style={{ fontSize: "40px", margin: "10px" }}/>
-//                 </div>
-//                 <div className="profileJob">
-//                     Software Engineer
-//                 </div>
-//             </div>
-
-//             <div className="profileBottomHalf">
-//                 <div className="profileBio">
-//                 <form onSubmit={}>
-//                 <p>Enter your bio</p>
-//                  <input
-//                     type='text'
-//                     onChange={
-//                     />
-//                 <input
-//                     type='submit'
-//                     />
-//                 </form>
-//                 <h3>Bio</h3>
-//                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
-//                 </div>
-//                 <div className="profileSkills">
-//                     <h3>Current Skills</h3>
-//                     <p className="profileSkills">
-//                         <span>Wireframing</span>
-//                         <span>Front End Development</span>
-//                         <span>Interaction Design</span>
-//                     </p>
-//                 </div>
-//                 <div className="profileDesired">
-//                     <h3>Desired Skills</h3>
-//                     <p className="profileDesired">
-//                         <span>Wireframing</span>
-//                         <span>Front End Development</span>
-//                         <span>Interaction Design</span>
-//                     </p>
-//                 </div>
-//             </div>
-
-//         </div>
-//     )
-// }
-
-// import React from 'react'
-
-// export default function EditProfile() {
-//     return (
-//         <div>
-
-//         </div>
-//     )
-// 
-//
-
-}

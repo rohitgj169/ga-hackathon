@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
 
 export default function NewProjectPage() {
+
+
   const [inputValues, setInputValues] = useState({
     title: "",
     time: "",
@@ -15,6 +17,8 @@ export default function NewProjectPage() {
     requiredUI: 0,
     requiredData: 0,
   });
+
+  
   let history = useHistory();
   const handleChange = (evt) => {
     evt.preventDefault();
