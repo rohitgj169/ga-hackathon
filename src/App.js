@@ -7,7 +7,8 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
 
-import NavBar from "./components/NavBar/Navbar";
+
+import NavBar from "./components/Navbar/Navbar"
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 
 
@@ -34,7 +35,7 @@ function App() {
           <ProjectsIndex projectList={projectList} setProjectList={setProjectList}/>
         </Route>
         <Route path='/project/new'>
-          <NewProjectPage />
+          <NewProjectPage user={user} />
         </Route>
         <Redirect to="/projects"/>
         </Switch>

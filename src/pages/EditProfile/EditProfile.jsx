@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import * as profileApi from "../../utilities/profile-api";
+import Swal from 'sweetalert2'
+import { useHistory } from "react-router-dom";
 
 export default function EditProfile({ user }) {
   const [Bio, setBio] = useState({});
-
+  let history = useHistory()
   const changeHandler = (e) => {
     e.preventDefault();
     console.log(e.target.value);
@@ -14,6 +16,11 @@ export default function EditProfile({ user }) {
     e.preventDefault();
     console.log("this is the user")
     console.log(user);
+    Swal.fire('You have updated your profile!')
+    
+    history.push("/user/profile");
+    
+
     const formData = {
       bio: Bio,
     };

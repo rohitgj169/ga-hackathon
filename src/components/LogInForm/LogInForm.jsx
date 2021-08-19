@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+ import { useHistory } from "react-router-dom";
+ import Swal from 'sweetalert2'
+
 
 export default function LogIn({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -7,7 +10,7 @@ export default function LogIn({ setUser }) {
     password: ''
   });
   const [error, setError] = useState('');
-
+  let history = useHistory()
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
     setError('');
@@ -18,6 +21,8 @@ export default function LogIn({ setUser }) {
     try {
       const user = await usersService.login(credentials);
       setUser(user);
+     Swal.fire('Login Success!')
+      history.push("/user/profile");
     } catch {
       setError('Log In Failed - Try Again');
     }

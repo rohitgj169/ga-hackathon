@@ -1,5 +1,9 @@
 import React, {  Component } from "react";
 import {signUp} from '../../utilities/users-service';
+import { useHistory } from "react-router-dom";
+import Swal from 'sweetalert2'
+
+
 
 export default class SignUpForm extends Component {
   state = {
@@ -26,12 +30,15 @@ export default class SignUpForm extends Component {
       const user = await signUp(userData);
       // console.log(user);
       this.props.setUser(user);
+      
+      Swal.fire('Signup Success!')
     } catch {
       this.setState({error: 'Sign Up Failed'})
     }
   };
 
   render() {
+
     const disable = this.state.password !== this.state.confirm;
     return (
       <div>

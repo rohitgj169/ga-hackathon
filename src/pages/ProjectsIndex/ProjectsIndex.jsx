@@ -6,6 +6,7 @@ export default function ProjectsIndex({ projectList, setProjectList }) {
   const getProjectList = async () => {
     try {
       const projectList = await ProjectAPI.getAllProjects();
+      console.log('this is the project list')
       console.log(projectList);
       setProjectList(projectList);
     } catch (err) {

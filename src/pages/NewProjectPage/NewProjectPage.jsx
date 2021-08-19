@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import * as ProjectAPI from "../../utilities/projects-api";
+import { useHistory } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 export default function NewProjectPage() {
   const [inputValues, setInputValues] = useState({
@@ -8,7 +10,7 @@ export default function NewProjectPage() {
     // type: "",
     // description: "",
   });
-
+let history = useHistory()
   const handleChange = (evt) => {
     evt.preventDefault();
     setInputValues({ ...inputValues, [evt.target.name]: evt.target.value });
@@ -20,6 +22,9 @@ export default function NewProjectPage() {
       title: inputValues.title,
     };
     console.log(formData);
+    
+      Swal.fire('New Project Created!!')
+      history.push("/projects");
     try {
       await ProjectAPI.create(formData);
     } catch (err) {
@@ -46,3 +51,6 @@ export default function NewProjectPage() {
     </div>
   );
 }
+
+
+
