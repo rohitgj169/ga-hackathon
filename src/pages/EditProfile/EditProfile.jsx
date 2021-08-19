@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as profileApi from "../../utilities/profile-api";
 import Swal from 'sweetalert2'
 import { useHistory } from "react-router-dom";
+import "./EditProfile.css"
+import { Form } from 'react-bootstrap'
 
 export default function EditProfile({ user, userProfile }) {
   const [Bio, setBio] = useState({});
@@ -24,12 +26,13 @@ export default function EditProfile({ user, userProfile }) {
       history.push("/user/profile");
     } catch(err) {
       console.log("error")
+      console.log(err)
     }
   };
 
   return (
-    <div>
-      <h1> Edit ProfilePage</h1>
+    <div className="EditProfile">
+      <h1> Edit Profile Page</h1>
       <form onSubmit={submitHandler}>
         <p>Enter your bio info</p>
         <textarea
@@ -41,6 +44,18 @@ export default function EditProfile({ user, userProfile }) {
           cols="50"
         ></textarea>
         <br></br>
+        <Form.Select
+              name="requiredSoftware"
+              value={"1"}
+              onChange={submitHandler}
+            >
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </Form.Select>
+
         {/* <input type="text" /> */}
         <input className="editProfileFormInput" type="submit" />
       </form>
@@ -48,7 +63,103 @@ export default function EditProfile({ user, userProfile }) {
   );
 }
 
-// import React ,{useState,useEffect} from "react";
+
+{/* <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="title">Project Title</label>
+          <br />
+
+          <input
+            type="text"
+            name="title"
+            placeholder="Enter Title"
+            value={inputValues.title}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="description">Project Brief</label>
+          <br />
+          <input
+            type="text"
+            name="description"
+            placeholder="Give an overview of your project"
+            value={inputValues.description}
+            onChange={handleChange}
+          />
+        </div>
+        <br></br>
+        <label htmlFor="title">Members Required</label>
+        <div className="new-project-members-container">
+          <div>
+            <h5>Software Engineer</h5>
+          </div>
+          <div>
+            <Form.Select
+              name="requiredSoftware"
+              value={inputValues.requiredSoftware}
+              onChange={handleChange}
+            >
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </Form.Select>
+          </div>
+        </div>
+        <div className="new-project-members-container">
+          <div>
+            <h5>User Experience Design</h5>
+          </div>
+          <div>
+            <Form.Select
+              name="requiredUI"
+              value={inputValues.requiredUI}
+              onChange={handleChange}
+            >
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </Form.Select>
+          </div>
+        </div>
+        <div className="new-project-members-container">
+          <div>
+            <h5>Data Science</h5>
+          </div>
+          <div>
+            <Form.Select
+              name="requiredData"
+              value={inputValues.requiredData}
+              onChange={handleChange}
+            >
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </Form.Select>
+          </div>
+        </div>
+        <div>
+          <label htmlFor="time">Time Commitment</label>
+          <br />
+          <input
+            type="text"
+            name="time"
+            placeholder="Enter number of hours"
+            value={inputValues.time}
+            onChange={handleChange}
+          />
+        </div> */}
+        
+
+
+
+{// import React ,{useState,useEffect} from "react";
 // import axios from "axios"
 // import './Profile.css'
 // import { ImTwitter, ImGithub, ImLinkedin } from 'react-icons/im'
@@ -147,4 +258,6 @@ export default function EditProfile({ user, userProfile }) {
 
 //         </div>
 //     )
-// }
+// 
+//
+}

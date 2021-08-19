@@ -68,6 +68,8 @@ export default function NewProjectPage() {
             onChange={handleChange}
           />
         </div>
+        <br></br>
+        <label htmlFor="title">Members Required</label>
         <div className="new-project-members-container">
           <div>
             <h5>Software Engineer</h5>
@@ -134,7 +136,7 @@ export default function NewProjectPage() {
           />
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit">Post</button>
         </div>
       </form>
     </div>

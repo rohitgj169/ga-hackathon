@@ -16,13 +16,14 @@ img {
 .profileTopHalf {
     /* border: 1px solid blue; */
     height: 50%;
-    background: linear-gradient(180deg, grey, white 30%);
+    background: linear-gradient(180deg, #C5D86D, white 70%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
    
 }
+
 
 .profileName {
     /* border: 1px solid red; */

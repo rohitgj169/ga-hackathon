@@ -29,7 +29,7 @@ export default function Profile({ user, userProfile, setUserProfile }) {
     <div className="profileContainer">
       <div className="profileTopHalf">
         <div className="profileStrip">
-          {/* <img className="profilePhoto" src={props.userObj.imageUrl} alt="profile-pic"/> */}
+          <img className="profilePhoto" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" alt="profile-pic"/>
         </div>
         <div className="profileEditIcon">
           <Link style={{ margin: "10px" }} to="/EditProfile">

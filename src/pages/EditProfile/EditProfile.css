@@ -1,0 +1,10 @@
+.EditProfile {
+    height: 90vh;
+    border: 1px solid black;
+    background: linear-gradient(180deg, #C5D86D, white 70%);
+    
+}
+
+div {
+    /* border: 1px solid red; */
+}

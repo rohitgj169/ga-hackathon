@@ -27,6 +27,10 @@ export default function ProjectIdPage({ match }) {
     <div>
       Project Title : {project.title}
       Project Creator : {project.creator.name}
+      Project Description : {project.description}
+      Project reqsoftware : {project.requiredSoftware}
+      Project reqUI : {project.requiredUI}
+      Project reqData : {project.requiredData}
     </div>
 
   )
