@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import * as ProjectAPI from "../../utilities/projects-api";
 import * as NotificationAPI from "../../utilities/notification-api";
+import './ProjectIdPage.css'
 
 export default function ProjectIdPage({ match }) {
   const [project, setProject] = useState({
@@ -38,16 +39,21 @@ export default function ProjectIdPage({ match }) {
 
   return (
     <div>
-      Project Title : {project.title}
+      <div className="projIdContainer">
+      <img className="appTitleProjId" src="https://i.imgur.com/kVZIj9m.png" /> 
+      <p className="projIdTitle">{project.title}</p>
       <br />
-      Project Creator : {project.creator.name}
+      {/* Project Creator : {project.creator.name} */}
+      <div className="projDescription">
+      {project.description}</div>
+      <div className="projReq">
+        <p className="needed">Needed:</p>
+      <p>{project.requiredSoftware} Software Engineer(s)</p>
+      <p>{project.requiredUI} UX Designer(s)</p>
+      <p>{project.requiredData} Data Scientist(s)</p>
+      </div>
 
-      Project Description : {project.description}
-      Project reqsoftware : {project.requiredSoftware}
-      Project reqUI : {project.requiredUI}
-      Project reqData : {project.requiredData}
-
-      <form>
+      {/* <form>
         <div>
           <label htmlFor="project-comment">Comment Section</label>
           <br/>
@@ -60,12 +66,12 @@ export default function ProjectIdPage({ match }) {
           >
           </textarea>
         </div>
-      </form>
+      </form> */}
       <br />
       <form onSubmit={handleSubmit}>
-        <button type="submit">Join Project</button>
+        <button className="joinBtn" type="submit">Join Project</button>
       </form>
 
-    </div>
+      </div></div>
   );
 }
