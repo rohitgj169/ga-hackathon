@@ -72,3 +72,7 @@
     border-radius: 5px;
    border: 0.5px solid black;
 }
+
+.current-group-container {
+  display: flex;
+}
