@@ -20,6 +20,21 @@ export async function create(project) {
   if (res.ok) {
     return "Notification Sent";
   } else {
-    throw new Error("umable to send notification");
+    throw new Error("unable to send notification");
+  }
+}
+
+export async function getNotifications() {
+  const res = await fetch(`${BASE_URL}/user`, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + getToken(),
+    }
+  });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("unable to retrieve notifications")
   }
 }

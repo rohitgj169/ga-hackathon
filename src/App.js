@@ -10,43 +10,55 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import NavBar from "./components/NavBar/Navbar";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
+import NotificationPage from "./pages/NotificationPage/NotificationPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
   const [projectList, setProjectList] = useState([]);
   const [userProfile, setUserProfile] = useState({
-        about: "",
-        imageUrl: "",
-        profession: "",
-        portfolio: "",
-        linkedin: "",
-        twitter: "",
-        github: "",
-        skill1: "",
-        skill2: "",
-        skill3: "",
-        desiredSkill1: "",
-        desiredSkill2: "",
-        desiredSkill3: "",
-    });
+    about: "",
+    imageUrl: "",
+    profession: "",
+    portfolio: "",
+    linkedin: "",
+    twitter: "",
+    github: "",
+    skill1: "",
+    skill2: "",
+    skill3: "",
+    desiredSkill1: "",
+    desiredSkill2: "",
+    desiredSkill3: "",
+  });
 
   return (
     <div className="App">
       {user ? (
         <>
-          
           <Switch>
             <Route path="/EditProfile">
-              <EditProfile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
+              <EditProfile
+                user={user}
+                userProfile={userProfile}
+                setUserProfile={setUserProfile}
+              />
             </Route>
             <Route path="/user/profile">
-              <Profile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
+              <Profile
+                user={user}
+                userProfile={userProfile}
+                setUserProfile={setUserProfile}
+              />
             </Route>
             <Route exact path="/projects">
-              <ProjectsIndex user={user}
+              <ProjectsIndex
+                user={user}
                 projectList={projectList}
                 setProjectList={setProjectList}
               />
+            </Route>
+            <Route exact path="/notifications">
+              <NotificationPage/>
             </Route>
             <Route
               path="/projects/:id"
@@ -57,7 +69,7 @@ function App() {
             </Route>
             <Redirect to="/projects" />
           </Switch>
-           <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser} />
         </>
       ) : (
         <Switch>
@@ -65,7 +77,6 @@ function App() {
           <Redirect to="/login" />
         </Switch>
       )}
-      <NavBar user={user} setUser={setUser} />
     </div>
   );
 }

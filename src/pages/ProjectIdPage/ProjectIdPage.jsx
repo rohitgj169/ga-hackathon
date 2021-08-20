@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import * as ProjectAPI from "../../utilities/projects-api";
 import * as NotificationAPI from "../../utilities/notification-api";
-import './ProjectIdPage.css'
+import "./ProjectIdPage.css";
 
 export default function ProjectIdPage({ match }) {
   const [project, setProject] = useState({
@@ -13,7 +13,7 @@ export default function ProjectIdPage({ match }) {
       _id: "",
     },
     members: [],
-    memberProfiles:[],
+    memberProfiles: [],
   });
   const loadProject = async () => {
     try {
@@ -46,62 +46,53 @@ export default function ProjectIdPage({ match }) {
   return (
     <div>
       <div className="projIdContainer">
-      <img className="appTitleProjId" src="https://i.imgur.com/kVZIj9m.png" /> 
-      <p className="projIdTitle">{project.title}</p>
-      <br />
-      {/* Project Creator : {project.creator.name} */}
-      <div className="projDescription">
-      {project.description}</div>
-      <div className="projReq">
-        <p className="needed">Needed:</p>
-      <p>{project.requiredSoftware} Software Engineer(s)</p>
-      <p>{project.requiredUI} UX Designer(s)</p>
-      <p>{project.requiredData} Data Scientist(s)</p>
-      </div>
+        <img className="appTitleProjId" src="https://i.imgur.com/kVZIj9m.png" />
+        <p className="projIdTitle">{project.title}</p>
+        <br />
+        {/* Project Creator : {project.creator.name} */}
+        <div className="projDescription">{project.description}</div>
+        <div className="projReq">
+          <p className="needed">Needed:</p>
+          <p>{project.requiredSoftware} Software Engineer(s)</p>
+          <p>{project.requiredUI} UX Designer(s)</p>
+          <p>{project.requiredData} Data Scientist(s)</p>
+        </div>
 
-      {/* <form>
-        <div>
-          <label htmlFor="project-comment">Comment Section</label>
-          <br />
-          <textarea
-            style={{ resize: "none" }}
-            type="text"
-            rows="4"
-            cols="50"
-            placeholder="Enter your comment here..."
-          ></textarea>
-        </div>
-      </form> */}
-      <br />
-      <h5>Current Group</h5>
-      <div className="current-group-container">
-        <div className="current-group-members">
-          {project.members.length > 0
-            ? project.members.map((member) => {
-                return (
-                  <div>
-                    <p>{member.name}</p>
-                  </div>
-                );
-              })
-            : null}
-        </div>
-        <div className="current-group-professions">
-          {project.memberProfiles.length > 0
-            ? project.memberProfiles.map((member) => {
-                return (
-                  <div>
-                    <p>{member.role}</p>
-                  </div>
-                );
-              })
-            : null}
-        </div>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <button className="joinBtn" type="submit">Join Project</button>
-      </form>
+        <br />
+        <h5>Current Group</h5>
+        <div className="current-group-container">
+          <div className="current-group-members">
+            <h5>User</h5>
+            {project.members.length > 0
+              ? project.members.map((member, idx) => {
+                  return (
+                    <div>
+                      <p>{`${member.name}`}</p>
+                    </div>
+                  );
+                })
+              : null}
+          </div>
+          <div className="current-group-professions">
+            <h5>Role</h5>
 
-      </div></div>
+            {project.memberProfiles.length > 0
+              ? project.memberProfiles.map((member) => {
+                  return (
+                    <div>
+                      <p>{member.role}</p>
+                    </div>
+                  );
+                })
+              : null}
+          </div>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <button className="joinBtn" type="submit">
+            Join Project
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }

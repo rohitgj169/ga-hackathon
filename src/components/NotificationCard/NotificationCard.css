@@ -1,0 +1,13 @@
+.notification-container {
+  border: 1px solid black;
+  margin: 10px 0; 
+}
+
+.notification-title {
+  text-align: initial;
+  padding: 0 10px;
+}
+
+.notification-info {
+  font-size: 14px;
+}
