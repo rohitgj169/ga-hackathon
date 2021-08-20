@@ -11,10 +11,9 @@ async function index(req, res) {
 }
 
 async function getUserProject(req, res) {
-  console.log('get user projects controller')
+  console.log(req.user._id);
   try {
-    const projects = await Project.find({userId: req.user._id});
-    console.log("_______________________")
+    const projects = await Project.find({creator: req.user._id});
     console.log(projects)
     res.status(200).json(projects);
   } catch (err) {

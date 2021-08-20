@@ -74,4 +74,7 @@
 
 .current-group-container {
   display: flex;
+  width: 90%;
+  justify-content: space-around;
+  background-color: #FFEDDF;
 }

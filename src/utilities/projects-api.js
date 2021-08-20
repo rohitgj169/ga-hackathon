@@ -44,7 +44,7 @@ export async function getAllProjects() {
 }
 
 export async function getUserProjects() {
-  const res = await fetch("/api/projects/userProject", {
+  const res = await fetch(`${BASE_URL}/userproject`, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + getToken(),
