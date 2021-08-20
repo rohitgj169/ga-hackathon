@@ -41,15 +41,15 @@ export default function Profile({ user, userProfile, setUserProfile }) {
           <p className="profileName">{user.name}</p>
         </div>
         <div className="profileIcons">
-          <a href={`//${userProfile.github}`}>
+          {/* <a href={`//${userProfile.github}`}> */}
           <ImTwitter style={{ fontSize: "40px", margin: "10px" }} />
-          </a>
-          <a href={`//${userProfile.github}`}>
+          {/* </a> */}
+          {/* <a href={`//${userProfile.github}`}> */}
           <ImGithub style={{ fontSize: "40px", margin: "10px" }} />
-          </a>
-          <a href={`//${userProfile.linkedin}`}>
+          {/* </a> */}
+          {/* <a href={`//${userProfile.linkedin}`}> */}
           <ImLinkedin style={{ fontSize: "40px", margin: "10px" }} />
-          </a>
+          {/* </a> */}
         </div>
         {userProfile ? (
           <div className="profileJob">{userProfile.profession}</div>
