@@ -29,8 +29,13 @@ async function getProjectInfo(req, res) {
   }
 }
 
+async function addToProject(req,res) {
+
+}
+
 module.exports = {
   index,
   create,
   getProjectInfo,
+  addToProject,
 };
