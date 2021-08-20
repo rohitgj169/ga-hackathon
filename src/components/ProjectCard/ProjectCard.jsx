@@ -6,7 +6,7 @@ export default function ProjectCard({ project }) {
   return (
     <div>
       <div className="projectCardContainer">
-        <p className="projTitle">
+        <p className="projCardTitle">
           {project.title}
           <br></br>
         </p>

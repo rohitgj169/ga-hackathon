@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar/Navbar";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
 import NotificationPage from "./pages/NotificationPage/NotificationPage";
+import MyProjects from "./pages/MyProjects/MyProjects"
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -49,6 +50,9 @@ function App() {
                 userProfile={userProfile}
                 setUserProfile={setUserProfile}
               />
+            </Route>
+            <Route path="/user/myProjects">
+              <MyProjects user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
             </Route>
             <Route exact path="/projects">
               <ProjectsIndex

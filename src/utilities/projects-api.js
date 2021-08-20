@@ -43,6 +43,21 @@ export async function getAllProjects() {
   }
 }
 
+export async function getUserProjects() {
+  const res = await fetch("/api/projects/userProject", {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + getToken(),
+    },
+  });
+
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Unable to retrieve projects");
+  }
+}
+
 export async function getOneProject(id) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "GET",

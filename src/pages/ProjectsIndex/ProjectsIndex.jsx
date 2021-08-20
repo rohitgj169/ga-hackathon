@@ -21,7 +21,7 @@ export default function ProjectsIndex({ projectList, setProjectList, user }) {
   return (
     <div>
       <div className="projectsContainer">
-        <img className="appTitle" src="https://i.imgur.com/kVZIj9m.png" alt="app-icon"/>
+        <img className="appProjTitle" src="https://i.imgur.com/kVZIj9m.png" />
         <p className="welcomeProject">Welcome, {user.name}!</p>
         <div className="btnDiv">
           <button className="newProjectBtn">

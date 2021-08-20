@@ -29,6 +29,7 @@ h1 {
     /* border: 1px solid red; */
     font-size: 24px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .profileJob {
@@ -36,6 +37,11 @@ h1 {
     font-size: 18px;
     font-style: italic;
     
+}
+
+.profileBottomHalf h3 {
+    font-family: Alata;
+    font-size: 20px;
 }
 
 
@@ -53,11 +59,13 @@ h1 {
     align-items: flext-start; */
     text-align: left;
     margin-left: 10px;
+    font-family: Alata;
 }
 
 .profileBio p {
     font-size: 14px;
     margin-top: -15px;
+    font-family: Inter;
 }
 
 .profileSkills, .profileDesired {

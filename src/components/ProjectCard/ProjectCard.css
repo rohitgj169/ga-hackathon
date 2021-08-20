@@ -6,10 +6,11 @@
     height: auto;
     margin: 0 auto;
     margin-bottom: 10px;
+    text-align: left !important;
 }
 
 
-.projTitle {
+.projCardTitle {
     text-transform: capitalize;
     font-family: 'Inter', sans-serif;
     font-size: 20px !important;
@@ -22,6 +23,8 @@
     font-size: 14px;
     margin-bottom: -7px;
     color: #434957;
+    text-align: left !important;
+    margin-left: 10px;
 }
 
 
