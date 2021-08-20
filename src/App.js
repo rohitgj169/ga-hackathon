@@ -14,17 +14,30 @@ import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
 function App() {
   const [user, setUser] = useState(getUser());
   const [projectList, setProjectList] = useState([]);
-  const [userProfile, setUserProfile] = useState(null);
-
+  const [userProfile, setUserProfile] = useState({
+        about: "",
+        imageUrl: "",
+        profession: "",
+        portfolio: "",
+        linkedin: "",
+        twitter: "",
+        github: "",
+        skill1: "",
+        skill2: "",
+        skill3: "",
+        desiredSkill1: "",
+        desiredSkill2: "",
+        desiredSkill3: "",
+    });
 
   return (
     <div className="App">
       {user ? (
         <>
-          <NavBar user={user} setUser={setUser} />
+          
           <Switch>
             <Route path="/EditProfile">
-              <EditProfile user={user} userProfile={userProfile}/>
+              <EditProfile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
             </Route>
             <Route path="/user/profile">
               <Profile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
@@ -44,6 +57,7 @@ function App() {
             </Route>
             <Redirect to="/projects" />
           </Switch>
+          
         </>
       ) : (
         <Switch>
@@ -51,6 +65,7 @@ function App() {
           <Redirect to="/login" />
         </Switch>
       )}
+      {/* <NavBar user={user} setUser={setUser} /> */}
     </div>
   );
 }

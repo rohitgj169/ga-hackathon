@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service';
 import Navbar from 'react-bootstrap/Navbar'
+import './Navbar.css'
 
 export default function NavBar({user, setUser}) {
   
@@ -11,14 +12,14 @@ export default function NavBar({user, setUser}) {
   }
 
   return (
-    <nav>
+    <nav className="Navbar">
       <Link to="/user/profile">Profile</Link>
       &nbsp; | &nbsp;
       <Link to="/project/new">New Project</Link>
       &nbsp; | &nbsp;
       <Link to="/projects">Projects</Link>
       &nbsp; | &nbsp;
-      <span>Welcome, {user.name}</span>
+      <span>Welcome,</span>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>

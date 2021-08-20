@@ -41,7 +41,17 @@ export default function ProjectIdPage({ match }) {
       Project Title : {project.title}
       <br />
       Project Creator : {project.creator.name}
+<<<<<<< HEAD
       {/* <form>
+=======
+
+      Project Description : {project.description}
+      Project reqsoftware : {project.requiredSoftware}
+      Project reqUI : {project.requiredUI}
+      Project reqData : {project.requiredData}
+
+      <form>
+>>>>>>> kareem
         <div>
           <label htmlFor="project-comment">Comment Section</label>
           <br/>
@@ -59,6 +69,7 @@ export default function ProjectIdPage({ match }) {
       <form onSubmit={handleSubmit}>
         <button type="submit">Join Project</button>
       </form>
+
     </div>
   );
 }

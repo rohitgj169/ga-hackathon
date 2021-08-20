@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
 
 export default function NewProjectPage() {
+
+
   const [inputValues, setInputValues] = useState({
     title: "",
     time: "",
@@ -15,6 +17,8 @@ export default function NewProjectPage() {
     requiredUI: 0,
     requiredData: 0,
   });
+
+  
   let history = useHistory();
   const handleChange = (evt) => {
     evt.preventDefault();
@@ -73,6 +77,8 @@ export default function NewProjectPage() {
             onChange={handleChange}
           />
         </div>
+        <br></br>
+        <label htmlFor="title">Members Required</label>
         <div className="new-project-members-container">
           <div>
             <h5>Software Engineer</h5>
@@ -139,7 +145,7 @@ export default function NewProjectPage() {
           />
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit">Post</button>
         </div>
       </form>
     </div>
