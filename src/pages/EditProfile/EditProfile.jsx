@@ -6,7 +6,7 @@ import "./EditProfile.css"
 
 import { Form } from 'react-bootstrap'
 
-export default function EditProfile({ user }) {
+export default function EditProfile({ user, setUserProfile }) {
 
 
   const [inputValues, setInputValues] = useState({
@@ -27,7 +27,7 @@ export default function EditProfile({ user }) {
     setInputValues({ ...inputValues, [evt.target.name]: evt.target.value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     // console.log(user);
     const formData = {
@@ -45,8 +45,11 @@ export default function EditProfile({ user }) {
       desiredSkill2: inputValues.desiredSkill2,
       desiredSkill3: inputValues.desiredSkill3,
     };
+    console.log(formData);
     try {
-      profileApi.create(formData, user._id)
+      const newProfile = await profileApi.create(formData, user._id);
+      setUserProfile(newProfile);
+      console.log(newProfile);
       Swal.fire('You have updated your profile!')
       history.push("/user/profile");
     } catch(err) {
@@ -71,7 +74,7 @@ export default function EditProfile({ user }) {
         <p>Bio</p>
         <textarea
           style={{resize:"none"}}
-          style={{width: "88vw"}}
+          // style={{width: "88vw"}}
           type="text"
           name="bio"
           onChange={changeHandler}
@@ -130,8 +133,7 @@ export default function EditProfile({ user }) {
           <p>Top 3 Current Skills</p>
             <Form.Select
             style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
-             
-              name="skills1"
+              name="skill1"
               value={inputValues.skill1}
               onChange={changeHandler}
               placeholder="Select Skill"
@@ -159,7 +161,7 @@ export default function EditProfile({ user }) {
             </Form.Select><br></br>
             <Form.Select
             style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
-              name="skills2"
+              name="skill2"
               value={inputValues.skill2}
               onChange={changeHandler}
             >  
@@ -186,10 +188,9 @@ export default function EditProfile({ user }) {
             </Form.Select><br></br>
             <Form.Select
             style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
-              name="skills3"
+              name="skill3"
               value={inputValues.skill3}
               onChange={changeHandler}
-              style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
             >
               
               <option value="User Testing">User Testing</option>
@@ -218,7 +219,7 @@ export default function EditProfile({ user }) {
             <Form.Select
             
             style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
-              name="desiredSkills1"
+              name="desiredSkills"
               value={inputValues.desiredSkill1}
               onChange={changeHandler}
             >
@@ -246,7 +247,7 @@ export default function EditProfile({ user }) {
             </Form.Select><br></br>
             <Form.Select
             style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
-              name="desiredSkills2"
+              name="desiredSkill2"
               value={inputValues.desiredSkill2}
               onChange={changeHandler}
             >
@@ -274,7 +275,7 @@ export default function EditProfile({ user }) {
             </Form.Select><br></br>
             <Form.Select
             style={{width: "89vw", height: "3vh", marginBottom: "5px"}}
-              name="desiredSkills3"
+              name="desiredSkill3"
               value={inputValues.desiredSkill3}
               onChange={changeHandler}
             >
