@@ -7,7 +7,7 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
 
-import NavBar from "./components/Navbar/Navbar";
+import NavBar from "./components/NavBar/Navbar";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
 
@@ -29,9 +29,6 @@ function App() {
         desiredSkill2: "",
         desiredSkill3: "",
     });
-  
-
-
 
   return (
     <div className="App">
@@ -40,7 +37,7 @@ function App() {
           
           <Switch>
             <Route path="/EditProfile">
-              <EditProfile user={user} userProfile={userProfile}/>
+              <EditProfile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
             </Route>
             <Route path="/user/profile">
               <Profile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
@@ -68,7 +65,7 @@ function App() {
           <Redirect to="/login" />
         </Switch>
       )}
-      <NavBar user={user} setUser={setUser} />
+      {/* <NavBar user={user} setUser={setUser} /> */}
     </div>
   );
 }

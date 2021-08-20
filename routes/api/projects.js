@@ -7,5 +7,6 @@ router.get("/:projectId", projectsCtrl.getProjectInfo);
 router.get("/", projectsCtrl.index);
 router.use(authenticate);
 router.post("/", projectsCtrl.create);
+router.post("/:id/users", projectsCtrl.addToProject);
 
 module.exports = router;
