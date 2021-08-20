@@ -1,5 +1,5 @@
 .projIdContainer {
-    background: linear-gradient(180deg, #C5D86D, white 50%);
+    background: linear-gradient(180deg, #C5D86D, white 90%);
     height:90vh;
     display: flex;
     flex-direction: column;
@@ -12,8 +12,7 @@
     top: 50px;
     /* width: 275px;
     height: 36px; */
-    size: 34px;
-    border: 1px solid red;
+    /* size: 34px; */
     box-sizing: border-box;
 }
 
@@ -34,6 +33,7 @@
     border-radius: 8px;
     font-family: Inter;
     text-align: left;
+    padding: 10px;
 
 }
 

@@ -6,7 +6,7 @@ export default function ProjectCard({project}) {
   return (
     <div>
       <div className="projectCardContainer">
-      <p className="projTitle">{project.title}<br></br></p>
+      <p className="projCardTitle">{project.title}<br></br></p>
       {project.requiredSoftware? <p>{project.requiredSoftware} Software Engineer(s)</p> : null } 
       {project.requiredUI? <p>{project.requiredUI} User Exprience Designer(s)</p> : null } 
       {project.requiredData? <p>{project.requiredData} Data Scientist(s)</p> : null } 

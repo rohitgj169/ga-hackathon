@@ -1,8 +1,6 @@
-.projectsContainer {
+.myProjectsContainer {
     background: linear-gradient(180deg, #C5D86D, white 30%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    min-height: 100vh;
 }
 
 .welcomeProject {
@@ -10,23 +8,13 @@
     position: relative;
     bottom: 20px;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 16px;
     text-transform: capitalize;
-}
-
-
-.projectsContainer img {
-   justify-content: center;
-   height: 22px;
-   width: 167px;
-   margin-top:20px;
-   margin-bottom: 20px;
 }
 
 .recommendedProj {
     font-weight: bold;
     font-size: 16px;
-    margin-left: 10px;
     
 }
 
@@ -38,7 +26,6 @@
     background: #C5D86D;
     border-radius: 5px;
     border: 0.5px solid #434957;
-   
 }
 
 .btnDiv {

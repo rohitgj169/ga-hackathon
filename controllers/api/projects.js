@@ -10,6 +10,18 @@ async function index(req, res) {
   }
 }
 
+async function getUserProject(req, res) {
+  console.log('get user projects controller')
+  try {
+    const projects = await Project.find({userId: req.user._id});
+    console.log("_______________________")
+    console.log(projects)
+    res.status(200).json(projects);
+  } catch (err) {
+    res.status(400).json("failed to retrieve projects");
+  }
+}
+
 async function create(req, res) {
   try {
     console.log(req.body);
@@ -29,6 +41,8 @@ async function getProjectInfo(req, res) {
     res.status(400).json("failed to retrieve project")
   }
 }
+
+
 
 async function addToProject(req,res) {
   try {
@@ -53,4 +67,5 @@ module.exports = {
   create,
   getProjectInfo,
   addToProject,
+  getUserProject,
 };

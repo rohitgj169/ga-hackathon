@@ -10,6 +10,7 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import NavBar from "./components/NavBar/Navbar";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
+import MyProjects from "./pages/MyProjects/MyProjects"
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -42,6 +43,9 @@ function App() {
             <Route path="/user/profile">
               <Profile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
             </Route>
+            <Route path="/user/myProjects">
+              <MyProjects user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
+            </Route>
             <Route exact path="/projects">
               <ProjectsIndex user={user}
                 projectList={projectList}
@@ -65,7 +69,6 @@ function App() {
           <Redirect to="/login" />
         </Switch>
       )}
-      <NavBar user={user} setUser={setUser} />
     </div>
   );
 }

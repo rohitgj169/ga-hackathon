@@ -1,28 +1,29 @@
 .EditProfile {
-    height: 90vh;
-    border: 1px solid black;
-    background: linear-gradient(180deg, #C5D86D, white 30%);
     
+    background: linear-gradient(180deg, #C5D86D, white 30%);
 }
 
-div {
-    /* border: 1px solid red; */
-}
 
-input {
+.EditProfile input {
     margin:3px;
+    font-family: 'Inter', sans serif;
 }
 
-p {
+.EditProfile p {
     text-align: left;
     margin-left: 5vw;
     margin-bottom: 0px;
+    font-family: 'Inter', sans serif;
 }
 
 .editProfileFormSubmit {
-    background-color: rgba(128, 0, 128, 0.604);
+    background-color: #C5D86D;
     position: relative;
-    right: 38vw;
-    color: white;
+    /* right: 38vw; */
+    color: black;
+    width: 167px;
     height: 40px;
+    font-size: 16px;
+    border: 0.5px solid #0D1321;
+    border-radius: 4px;
 }
