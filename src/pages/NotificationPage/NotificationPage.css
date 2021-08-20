@@ -1,4 +1,6 @@
 .notifPage {
     background: linear-gradient(180deg, #C5D86D, white 90%);
-    font-family: 'Alata'
+    font-family: 'Alata';
+    min-height: 100vh;
+    margin-top: 0px;
 }
