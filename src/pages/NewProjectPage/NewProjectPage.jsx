@@ -5,6 +5,7 @@ import * as ProjectAPI from "../../utilities/projects-api";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import Form from "react-bootstrap/Form";
+import './NewProjectPage.css'
 
 export default function NewProjectPage() {
 
@@ -48,6 +49,8 @@ export default function NewProjectPage() {
 
   return (
     <div>
+      <div className="newProjContainer">
+      <img className="newProjAppTitle" src="https://i.imgur.com/kVZIj9m.png" /> 
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Project Title</label>
@@ -148,6 +151,7 @@ export default function NewProjectPage() {
           <button type="submit">Post</button>
         </div>
       </form>
+      </div>
     </div>
   );
 }
