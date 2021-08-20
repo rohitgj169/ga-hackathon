@@ -12,6 +12,7 @@ export default function ProjectIdPage({ match }) {
       _id: "",
     },
     members: [],
+    memberProfiles:[],
   });
   const loadProject = async () => {
     try {
