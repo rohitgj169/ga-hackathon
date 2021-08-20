@@ -1,18 +1,33 @@
 .notification-container {
+  background-color: #ffeddf;
   border: 1px solid black;
   margin: 10px 0;
   width: 80vw;
   margin: 10px auto;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 5px;
+}
+
+.notification-container button {
+  background-color: #c5d86d;
+  width: 167px;
+  height: 40px;
+  border-radius: 5px;
 }
 
 .notification-title {
-  text-align: initial;
-  padding: 0 10px;
+  text-align: left;
+  padding: 0 0px;
+  font-family: Alata;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 18px;
 }
 
 .notification-info {
   font-size: 14px;
-  text-align: initial;
+  text-align: left;
 }
