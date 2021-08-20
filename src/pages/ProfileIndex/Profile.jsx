@@ -4,8 +4,9 @@ import { ImTwitter, ImGithub, ImLinkedin } from "react-icons/im";
 import { AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import * as profileAPI from "../../utilities/profile-api";
+import * as userService from "../../utilities/users-service";
 
-export default function Profile({ user, userProfile, setUserProfile }) {
+export default function Profile({ user, userProfile, setUserProfile, setUser }) {
 
   const getProfile = async() => {
     try{
@@ -16,7 +17,10 @@ export default function Profile({ user, userProfile, setUserProfile }) {
       console.log(err.message)
     }
   }
-
+const handleLogOut = () => {
+  userService.logOut();
+  setUser(null);
+}
 
   useEffect(() => {
     getProfile();
@@ -72,9 +76,13 @@ export default function Profile({ user, userProfile, setUserProfile }) {
             {/* <span>{userProfile.desiredSkill1}</span>
             <span>{userProfile.desiredSkill2}</span>
             <span>{userProfile.desiredSkill3}</span> */}
-          </p>
+          </p><Link to="" onClick={handleLogOut}>Log Out</Link>
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
+
+
+
+   

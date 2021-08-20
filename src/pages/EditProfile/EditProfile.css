@@ -19,7 +19,7 @@ p {
     margin-bottom: 0px;
 }
 
-button {
+.editProfileFormSubmit {
     background-color: rgba(128, 0, 128, 0.604);
     position: relative;
     right: 38vw;

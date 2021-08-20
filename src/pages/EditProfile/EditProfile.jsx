@@ -303,7 +303,7 @@ export default function EditProfile({ user }) {
 
         {/* <input type="text" /> */}
         {/* <button><input style={{position: "relative", right: "35vw"}} className="editProfileFormInput" name="Done" type="submit" />Done</button> */}
-        <button type="submit" className="editProfileFormInput" name="Done">Done</button>
+        <button type="submit" className="editProfileFormSubmit" name="Done">Done</button>
       </form>
     </div>
   );
