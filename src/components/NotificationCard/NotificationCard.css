@@ -1,5 +1,5 @@
 .notification-container {
-  background-color: #FFEDDF;
+  background-color: #ffeddf;
   border: 1px solid black;
   margin: 10px 0;
   width: 80vw;
@@ -12,10 +12,10 @@
 }
 
 .notification-container button {
- background-color: #C5D86D;
- width: 167px;
- height: 40px;
- border-radius: 5px;
+  background-color: #c5d86d;
+  width: 167px;
+  height: 40px;
+  border-radius: 5px;
 }
 
 .notification-title {
