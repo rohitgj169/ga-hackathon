@@ -1,0 +1,34 @@
+.projectsContainer {
+    background: linear-gradient(180deg, #C5D86D, white 30%);
+}
+
+.welcomeProject {
+    text-align: center;
+    position: relative;
+    bottom: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.recommendedProj {
+    font-weight: bold;
+    font-size: 16px;
+    
+}
+
+.newProjectBtn {
+    display: block;
+    font-family: Inter;
+    height: 40px;
+    width: 343px;
+    background: #C5D86D;
+    border-radius: 5px;
+    border: 0.5px solid #434957;
+   
+}
+
+.btnDiv {
+    display:flex;
+    justify-content: center;
+}

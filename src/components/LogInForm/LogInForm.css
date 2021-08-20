@@ -1,0 +1,97 @@
+.logInContainer {
+    /* border: 3px solid red; */
+    height: 85vh;
+    background: linear-gradient(180deg, #C5D86D, white 30%);
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.formContainer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.image {
+    align-self: center;
+    margin-top: 50px;
+    height: 61px;
+    width: 84px;
+}
+
+.appTitle {
+    align-self: center;
+    margin-bottom: 100px;
+    width: 275px;
+    height: 36px;
+}
+
+.signupMsg {
+    margin-bottom: 10px;
+    text-align: center;;
+    
+}
+
+.formContainer input {
+    margin-bottom: 10px;
+    width: 343px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid black;
+    
+}
+
+.headerLogIn {
+    /* font-weight: bold; */
+    align-self: center;
+    margin: 0px;
+    font-size: 12px;
+}
+
+.password {
+    display: flex;
+    /* border: 3px solid blue; */
+    flex-direction: row;
+}
+
+.formContainer label {
+    display: block;
+    position: relative;
+    right: 140px;
+}
+
+.formContainer form {
+    width: 100%;
+    height: 100%;
+}
+
+.passwordInput {
+    width: 40%;
+}
+
+/* .passwordInput2 {
+    width: 40% !important;
+    border: 1px solid red;
+} */
+
+.formContainer button {
+    display: block;
+    height: 40px;
+    width: 343px;
+    background: #C5D86D;
+    /* font-weight: bold; */
+    border-radius: 5px;
+   border: 0.5px solid black;
+
+}
+
+.logInDivButton {
+    align-content: center;
+   
+}

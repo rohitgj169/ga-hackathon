@@ -7,7 +7,7 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
 
-import NavBar from "./components/NavBar/Navbar";
+import NavBar from "./components/Navbar/Navbar";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
 
@@ -43,7 +43,7 @@ function App() {
               <Profile user={user} userProfile={userProfile} setUserProfile={setUserProfile}/>
             </Route>
             <Route exact path="/projects">
-              <ProjectsIndex
+              <ProjectsIndex user={user}
                 projectList={projectList}
                 setProjectList={setProjectList}
               />
@@ -57,7 +57,7 @@ function App() {
             </Route>
             <Redirect to="/projects" />
           </Switch>
-          
+           <NavBar user={user} setUser={setUser} />
         </>
       ) : (
         <Switch>

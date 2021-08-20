@@ -1,0 +1,39 @@
+.projectCardContainer {
+    border: 1px solid #434957;
+    border-radius: 10px;
+    width: 343px;
+    /* height: 154px; */
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+
+.projTitle {
+    text-transform: capitalize;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px !important;
+    color: black !important;
+  
+}
+
+.projectCardContainer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-bottom: -7px;
+    color: #434957;
+}
+
+
+.moreInfo button {
+    display: block;
+    height: 40px;
+    width: 167px;
+    background: #C5D86D;
+    /* font-weight: bold; */
+    border-radius: 5px;
+   border: 0.5px solid #434957;
+   margin: 10px;
+   margin-top: 20px !important;
+   font-size: 16px;
+}

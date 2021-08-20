@@ -4,6 +4,7 @@ import { ImTwitter, ImGithub, ImLinkedin } from "react-icons/im";
 import { AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import * as profileAPI from "../../utilities/profile-api";
+import * as userService from "../../utilities/users-service";
 
 export default function Profile({ user, userProfile, setUserProfile }) {
   const getProfile = async () => {
@@ -82,7 +83,11 @@ export default function Profile({ user, userProfile, setUserProfile }) {
             {userProfile ? <span>{userProfile.desiredSkill3}</span> : null}
           </p>
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
+
+
+
+   
