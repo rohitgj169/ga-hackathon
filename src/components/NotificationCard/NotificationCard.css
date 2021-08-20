@@ -4,12 +4,12 @@
   width: 80vw;
   margin: 10px auto;
   padding: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .notification-title {
   text-align: initial;
   padding: 0 10px;
-  font-family: Alata;
 }
 
 .notification-info {
