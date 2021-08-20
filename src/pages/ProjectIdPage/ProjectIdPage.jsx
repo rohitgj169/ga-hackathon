@@ -60,7 +60,7 @@ export default function ProjectIdPage({ match }) {
           >
           </textarea>
         </div>
-      </form> */}
+      </form>
       <br />
       <form onSubmit={handleSubmit}>
         <button type="submit">Join Project</button>
