@@ -14,7 +14,23 @@ import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
 function App() {
   const [user, setUser] = useState(getUser());
   const [projectList, setProjectList] = useState([]);
-  const [userProfile, setUserProfile] = useState(null);
+  const [userProfile, setUserProfile] = useState({
+        about: "",
+        imageUrl: "",
+        profession: "",
+        portfolio: "",
+        linkedin: "",
+        twitter: "",
+        github: "",
+        skill1: "",
+        skill2: "",
+        skill3: "",
+        desiredSkill1: "",
+        desiredSkill2: "",
+        desiredSkill3: "",
+    });
+  
+
 
 
   return (

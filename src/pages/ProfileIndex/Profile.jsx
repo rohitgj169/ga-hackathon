@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import * as profileAPI from "../../utilities/profile-api";
 
 export default function Profile({ user, userProfile, setUserProfile }) {
-  // const [userProfile, setUserProfile] = useState(null);
 
   const getProfile = async() => {
     try{
@@ -18,10 +17,8 @@ export default function Profile({ user, userProfile, setUserProfile }) {
     }
   }
 
+
   useEffect(() => {
-      setUserProfile({
-          about: ""
-      })
     getProfile();
   },[])
 
@@ -41,7 +38,12 @@ export default function Profile({ user, userProfile, setUserProfile }) {
           <p className="profileName">{user.name}</p>
         </div>
         <div className="profileIcons">
-          <ImTwitter style={{ fontSize: "40px", margin: "10px" }} />
+          
+          {/* <ImTwitter onClick={() => window.open(`${userProfile.twitter}`)} */}
+          <ImTwitter onClick={() => window.open("www.google.ca")}
+          
+          style={{ fontSize: "40px", margin: "10px" }} />
+         
 
           <ImGithub style={{ fontSize: "40px", margin: "10px" }} />
 
@@ -58,17 +60,18 @@ export default function Profile({ user, userProfile, setUserProfile }) {
         <div className="profileSkills">
           <h3>Current Skills</h3>
           <p className="profileSkills">
-            <span>Wireframing</span>
-            <span>Front End Development</span>
-            <span>Interaction Design</span>
+            {/* <span>{userProfile.desiredSkill1}</span>
+            {userProfile.skill1?<span>{userProfile.skill1}</span>: <span>Add Skill</span>}
+            {userProfile.skill2?<span>{userProfile.skill2}</span>: <span>Add Skill</span>}
+            {userProfile.skill3?<span>{userProfile.skill3}</span>: <span>Add Skill</span>} */}
           </p>
         </div>
         <div className="profileDesired">
           <h3>Desired Skills</h3>
           <p className="profileDesired">
-            <span>Wireframing</span>
-            <span>Front End Development</span>
-            <span>Interaction Design</span>
+            {/* <span>{userProfile.desiredSkill1}</span>
+            <span>{userProfile.desiredSkill2}</span>
+            <span>{userProfile.desiredSkill3}</span> */}
           </p>
         </div>
       </div>
