@@ -1,13 +1,18 @@
 .notification-container {
   border: 1px solid black;
-  margin: 10px 0; 
+  margin: 10px 0;
+  width: 80vw;
+  margin: 10px auto;
+  padding: 10px;
 }
 
 .notification-title {
   text-align: initial;
   padding: 0 10px;
+  font-family: Alata;
 }
 
 .notification-info {
   font-size: 14px;
+  text-align: initial;
 }

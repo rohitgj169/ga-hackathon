@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 export default function MyProjects({ user }) {
   const [userProj, setUserProj] = useState([]);
-  console.log(user);
 
   const getProjectList = async () => {
     try {

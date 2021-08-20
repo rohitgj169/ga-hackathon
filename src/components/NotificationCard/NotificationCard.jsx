@@ -4,8 +4,6 @@ import "./NotificationCard.css";
 
 
 export default function NotificationCard({project, fromUser}) {
-  console.log(project);
-  console.log(fromUser);
   return (
     <div className="notification-container">
       <h5 className="notification-title">{project.title}</h5>
