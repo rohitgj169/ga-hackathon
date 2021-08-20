@@ -26,8 +26,12 @@ export default function ProjectIdPage({ match }) {
     evt.preventDefault();
     try {
       const notification = await NotificationAPI.create(project);
-      console.log(notification);
     } catch (err) {
+      console.log(err.message);
+    }
+    try {
+      const addToProject = await ProjectAPI.addToProject(project._id);
+    } catch(err) {
       console.log(err.message);
     }
   };
@@ -41,7 +45,6 @@ export default function ProjectIdPage({ match }) {
       Project Title : {project.title}
       <br />
       Project Creator : {project.creator.name}
-
       Project Description : {project.description}
       Project reqsoftware : {project.requiredSoftware}
       Project reqUI : {project.requiredUI}

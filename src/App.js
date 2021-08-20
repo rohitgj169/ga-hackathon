@@ -65,7 +65,7 @@ function App() {
           <Redirect to="/login" />
         </Switch>
       )}
-      {/* <NavBar user={user} setUser={setUser} /> */}
+      <NavBar user={user} setUser={setUser} />
     </div>
   );
 }

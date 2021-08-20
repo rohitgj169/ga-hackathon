@@ -6,7 +6,7 @@ const authenticate = require("../../helpers/authenticate");
 router.get("/:projectId", projectsCtrl.getProjectInfo);
 router.get("/", projectsCtrl.index);
 router.use(authenticate);
+router.post("/:id/users", projectsCtrl.addToProject); 
 router.post("/", projectsCtrl.create);
-router.post("/:id/users", projectsCtrl.addToProject);
 
 module.exports = router;
