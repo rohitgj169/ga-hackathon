@@ -78,3 +78,7 @@
   justify-content: space-around;
   background-color: #FFEDDF;
 }
+
+.hidden{
+  display: none;
+}

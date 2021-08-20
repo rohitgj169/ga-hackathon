@@ -32,7 +32,7 @@ export default function MyProjects({ user }) {
               .map((project) => {
                 return <ProjectCard key={project._id} project={project} />;
               })
-          : null}
+          : <p>No Projects Yet</p>}
       </div>
     </div>
   );

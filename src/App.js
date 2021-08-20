@@ -6,7 +6,6 @@ import Profile from "./pages/ProfileIndex/Profile";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import ProjectsIndex from "./pages/ProjectsIndex/ProjectsIndex";
 import AuthPage from "./pages/AuthPage/AuthPage";
-
 import NavBar from "./components/NavBar/Navbar";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage";
 import ProjectIdPage from "./pages/ProjectIdPage/ProjectIdPage";
@@ -36,6 +35,7 @@ function App() {
     <div className="App">
       {user ? (
         <>
+          <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route path="/EditProfile">
               <EditProfile
@@ -73,7 +73,7 @@ function App() {
             </Route>
             <Redirect to="/projects" />
           </Switch>
-          <NavBar user={user} setUser={setUser} />
+          
         </>
       ) : (
         <Switch>

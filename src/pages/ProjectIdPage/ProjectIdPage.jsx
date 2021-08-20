@@ -4,8 +4,11 @@ import { useEffect } from "react";
 import * as ProjectAPI from "../../utilities/projects-api";
 import * as NotificationAPI from "../../utilities/notification-api";
 import "./ProjectIdPage.css";
+import { getUser } from "../../utilities/users-service";
 
 export default function ProjectIdPage({ match }) {
+  const currentUser = getUser();
+  const [btnHidden, setBtnHidden] = useState(false);
   const [project, setProject] = useState({
     title: "",
     creator: {
@@ -37,6 +40,8 @@ export default function ProjectIdPage({ match }) {
     } catch (err) {
       console.log(err.message);
     }
+    setBtnHidden(true);
+    loadProject();
   };
 
   useEffect(() => {
@@ -79,7 +84,7 @@ export default function ProjectIdPage({ match }) {
             {project.memberProfiles.length > 0
               ? project.memberProfiles.map((member) => {
                   return (
-                    <div>
+                    <div key={member._id}>
                       <p>{member.role}</p>
                     </div>
                   );
@@ -87,11 +92,13 @@ export default function ProjectIdPage({ match }) {
               : null}
           </div>
         </div>
-        <form onSubmit={handleSubmit}>
-          <button className="joinBtn" type="submit">
-            Join Project
-          </button>
-        </form>
+        {currentUser._id !== project.creator._id ? (
+          <form onSubmit={handleSubmit}>
+            <button className={"joinBtn " + (btnHidden?"hidden":"") } type="submit">
+              Join Project
+            </button>
+          </form>
+        ) : null}
       </div>
     </div>
   );
