@@ -2,5 +2,6 @@
     background: linear-gradient(180deg, #C5D86D, white 90%);
     font-family: 'Alata';
     min-height: 100vh;
-    margin-top: 0px;
+    margin-top: -20px;
+    padding-top: 30px;
 }

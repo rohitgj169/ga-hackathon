@@ -35,7 +35,7 @@ function App() {
     <div className="App">
       {user ? (
         <>
-          <NavBar user={user} setUser={setUser} />
+        
           <Switch>
             <Route path="/EditProfile">
               <EditProfile
@@ -73,7 +73,7 @@ function App() {
             </Route>
             <Redirect to="/projects" />
           </Switch>
-          
+          <NavBar user={user} setUser={setUser} />
         </>
       ) : (
         <Switch>
