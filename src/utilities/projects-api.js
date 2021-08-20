@@ -46,13 +46,28 @@ export async function getAllProjects() {
 export async function getOneProject(id) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "GET",
-    header: {
+    headers: {
       Authorization: "Bearer " + getToken(),
+      "Content-Type": "application/json",
     },
   });
   if (res.ok) {
     return res.json();
   } else {
     throw new Error("Unable to retrieve project info.");
+  }
+}
+
+export async function addToProject(projectId) {
+  const res = await fetch(`${BASE_URL}/${projectId}/users`, {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + getToken(),
+    }
+  });
+  if (res.ok) {
+    return "Added to Project";
+  } else {
+    throw new Error("Unable to join project at this time");
   }
 }

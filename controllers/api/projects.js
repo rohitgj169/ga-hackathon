@@ -1,4 +1,5 @@
 const Project = require("../../models/project");
+const Profile = require("../../models/profile");
 
 async function index(req, res) {
   try {
@@ -22,7 +23,7 @@ async function create(req, res) {
 
 async function getProjectInfo(req, res) {
   try{
-    const project = await Project.findById(req.params.projectId).populate("creator");
+    const project = await Project.findById(req.params.projectId).populate("creator").populate("members");
     res.status(200).json(project);
   } catch(err) {
     res.status(400).json("failed to retrieve project")
@@ -30,7 +31,21 @@ async function getProjectInfo(req, res) {
 }
 
 async function addToProject(req,res) {
-
+  try {
+    const project = await Project.findById(req.params.id);
+    console.log(project);
+    const profile = await Profile.findOne({userId:req.user._id});
+    console.log(profile);
+    const newMember = {
+      role: profile.profession,
+    }
+    project.members.push(req.user._id);
+    project.memberProfiles.push(newMember);
+    await project.save();
+    res.status(200).json("Successfully added");
+  } catch(err) {
+    res.status(400).json("failed to add");
+  }
 }
 
 module.exports = {

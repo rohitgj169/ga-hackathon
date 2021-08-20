@@ -21,6 +21,7 @@ const projectSchema = new Schema({
       ref: "User",
     },
   ],
+  memberProfiles: Array,
 });
 
 module.exports = mongoose.model("Project", projectSchema);

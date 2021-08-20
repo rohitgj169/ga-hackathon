@@ -73,8 +73,7 @@ export default function EditProfile({ user, setUserProfile }) {
           />
         <p>Bio</p>
         <textarea
-          style={{resize:"none"}}
-          // style={{width: "88vw"}}
+          style={{resize:"none", width:"88vw"}}
           type="text"
           name="bio"
           onChange={changeHandler}

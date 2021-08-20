@@ -12,6 +12,8 @@ export default function ProjectIdPage({ match }) {
       name: "",
       _id: "",
     },
+    members: [],
+    memberProfiles:[],
   });
   const loadProject = async () => {
     try {
@@ -27,7 +29,11 @@ export default function ProjectIdPage({ match }) {
     evt.preventDefault();
     try {
       const notification = await NotificationAPI.create(project);
-      console.log(notification);
+    } catch (err) {
+      console.log(err.message);
+    }
+    try {
+      const addToProject = await ProjectAPI.addToProject(project._id);
     } catch (err) {
       console.log(err.message);
     }
@@ -56,18 +62,42 @@ export default function ProjectIdPage({ match }) {
       {/* <form>
         <div>
           <label htmlFor="project-comment">Comment Section</label>
-          <br/>
-          <textarea 
-          style={{ resize: "none" }} 
-          type="text"
-          rows="4"
-          cols="50"
-          placeholder="Enter your comment here..."
-          >
-          </textarea>
+          <br />
+          <textarea
+            style={{ resize: "none" }}
+            type="text"
+            rows="4"
+            cols="50"
+            placeholder="Enter your comment here..."
+          ></textarea>
         </div>
       </form> */}
       <br />
+      <h5>Current Group</h5>
+      <div className="current-group-container">
+        <div className="current-group-members">
+          {project.members.length > 0
+            ? project.members.map((member) => {
+                return (
+                  <div>
+                    <p>{member.name}</p>
+                  </div>
+                );
+              })
+            : null}
+        </div>
+        <div className="current-group-professions">
+          {project.memberProfiles.length > 0
+            ? project.memberProfiles.map((member) => {
+                return (
+                  <div>
+                    <p>{member.role}</p>
+                  </div>
+                );
+              })
+            : null}
+        </div>
+      </div>
       <form onSubmit={handleSubmit}>
         <button className="joinBtn" type="submit">Join Project</button>
       </form>
