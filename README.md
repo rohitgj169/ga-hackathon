@@ -8,13 +8,6 @@ Collabocado is an application aimed at helping Tech Professionals get a headstar
 
 - [Open Presentation!](https://www.canva.com/design/DAEnjvrF-fQ/view)
 
-
-<strong>Screenshots</strong>
-
-<img src="collabocado.png">
-
-<img src="collabocadodark.png">
-
 <strong>Technologies Used</strong>
 
 - MonogDB
